@@ -22,9 +22,142 @@
  * SOFTWARE.
  */
 
- module.exports = {
-  globals: {
-    __PATH_PREFIX__: true
-  },
-  extends: `react-app`
-}
+module.exports = {
+    env: {
+        node: true // defines things like process.env when generating through node
+    },
+    extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "airbnb",
+        "plugin:react/recommended"
+    ],
+    parser: "babel-eslint", // uses babel-eslint transforms
+    rules: {
+        "comma-dangle": [
+            "warn",
+            "never"
+        ],
+        "eol-last": "error",
+        "import/order": [
+            "warn",
+            {
+                alphabetize: {
+                    caseInsensitive: true,
+                    order: "asc"
+                },
+                groups: [
+                    "builtin",
+                    "external",
+                    "index",
+                    "sibling",
+                    "parent",
+                    "internal"
+                ]
+            }
+        ],
+        indent: [
+            "error",
+            4
+        ],
+        "jsx-quotes": [
+            "warn",
+            "prefer-double"
+        ],
+        "max-len": [
+            "warn",
+            {
+                code: 120
+            }
+        ],
+        "no-console": "warn",
+        "no-duplicate-imports": "warn",
+        "no-restricted-imports": [
+            "error",
+            {
+                paths: [
+                    {
+                        message: "Please use import foo from 'lodash-es/foo' instead.",
+                        name: "lodash"
+                    },
+                    {
+                        message: "Avoid using chain since it is non tree-shakable. Try out flow instead.",
+                        name: "lodash-es/chain"
+                    },
+                    {
+                        importNames: ["chain"],
+                        message: "Avoid using chain since it is non tree-shakable. Try out flow instead.",
+                        name: "lodash-es"
+                    },
+                    {
+                        message: "Please use import foo from 'lodash-es/foo' instead.",
+                        name: "lodash-es"
+                    }
+                ],
+                patterns: [
+                    "lodash/**",
+                    "lodash/fp/**"
+                ]
+            }
+        ],
+        "no-unused-vars": 1,
+        "object-curly-spacing": [
+            "warn",
+            "always"
+        ],
+        quotes: [
+            "warn",
+            "double"
+        ],
+        "react/jsx-curly-spacing": [
+            "warn",
+            {
+                allowMultiline: true,
+                children: {
+                    when: "always"
+                },
+                spacing: {
+                    objectLiterals: "always"
+                },
+                when: "always"
+            }
+        ],
+        "react/jsx-indent": [
+            0,
+            4,
+            {
+                checkAttributes: true,
+                indentLogicalExpressions:
+                    true
+            }
+        ],
+        "react/jsx-indent-props": [
+            0,
+            4
+        ],
+        "react/prop-types": 1,
+        semi: 1,
+        "sort-imports": [
+            "warn",
+            {
+                ignoreCase: false,
+                ignoreDeclarationSort: true,
+                ignoreMemberSort: false
+            }
+        ],
+        "sort-keys": [
+            "warn",
+            "asc",
+            {
+                caseSensitive: true,
+                minKeys: 2,
+                natural: false
+            }
+        ]
+    },
+    settings: {
+        react: {
+            version: "detect" // detect react version
+        }
+    }
+};
