@@ -29,10 +29,17 @@ module.exports = {
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "airbnb",
         "plugin:react/recommended"
     ],
     parser: "babel-eslint", // uses babel-eslint transforms
+    parserOptions: {
+        ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+        sourceType: "module" // Allows for the use of imports
+    },
+    plugins: [
+        "import",
+        "@typescript-eslint"
+    ],
     rules: {
         "comma-dangle": [
             "warn",
@@ -100,9 +107,13 @@ module.exports = {
                 ]
             }
         ],
-        "no-unused-vars": 1,
+        "no-unused-vars": "warn",
         "object-curly-spacing": [
             "warn",
+            "always"
+        ],
+        "padded-blocks": [
+            "off",
             "always"
         ],
         quotes: [
@@ -122,8 +133,19 @@ module.exports = {
                 when: "always"
             }
         ],
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                extensions: [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
         "react/jsx-indent": [
-            0,
+            "error",
             4,
             {
                 checkAttributes: true,
@@ -132,11 +154,11 @@ module.exports = {
             }
         ],
         "react/jsx-indent-props": [
-            0,
+            "error",
             4
         ],
-        "react/prop-types": 1,
-        semi: 1,
+        "react/prop-types": "warn",
+        semi: "warn",
         "sort-imports": [
             "warn",
             {
