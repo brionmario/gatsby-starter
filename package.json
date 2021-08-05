@@ -11,12 +11,14 @@
         "gatsby-plugin-manifest": "^3.10.0",
         "gatsby-plugin-offline": "^4.10.0",
         "gatsby-plugin-react-helmet": "^4.10.0",
+        "gatsby-plugin-sass": "^4.11.0",
         "gatsby-plugin-sharp": "^3.10.2",
         "gatsby-source-filesystem": "^3.10.0",
         "gatsby-transformer-sharp": "^3.10.0",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
-        "react-helmet": "^6.1.0"
+        "react-helmet": "^6.1.0",
+        "sass": "^1.37.5"
     },
     "devDependencies": {
         "@types/react": "^17.0.15",
@@ -26,11 +28,10 @@
         "@typescript-eslint/parser": "^4.29.0",
         "babel-eslint": "^10.1.0",
         "eslint": "^7.32.0",
-        "eslint-config-airbnb": "^18.2.1",
         "eslint-plugin-import": "^2.23.4",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-react": "^7.24.0",
-        "eslint-plugin-react-hooks": "^1.7.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
         "eslint-webpack-plugin": "^3.0.1",
         "gatsby-plugin-eslint": "^3.0.0",
         "typescript": "^4.3.5"
@@ -42,7 +43,7 @@
     "scripts": {
         "build": "gatsby build",
         "clean": "gatsby clean",
-        "develop": "gatsby develop -p 8000",
+        "develop": "gatsby develop",
         "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
         "serve": "gatsby serve",
         "start": "npm run develop",

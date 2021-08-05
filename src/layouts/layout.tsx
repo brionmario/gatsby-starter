@@ -25,7 +25,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FunctionComponent, PropsWithChildren } from "react";
 import { Header } from "../components";
-import "../assets/styles/layout.css";
 import { TestableComponentInterface } from "../models";
 
 type ILayoutProps = TestableComponentInterface;

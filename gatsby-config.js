@@ -26,6 +26,7 @@ module.exports = {
     plugins: [
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-image",
+        "gatsby-plugin-sass",
         {
             options: {
                 exclude: ["node_modules", ".cache", "public"],
@@ -37,7 +38,7 @@ module.exports = {
         {
             options: {
                 name: "images",
-                path: `${__dirname}/src/images`
+                path: `${__dirname}/src/assets/images`
             },
             resolve: "gatsby-source-filesystem"
         },

@@ -50,7 +50,7 @@ const IndexPage: FunctionComponent<PageProps<IIndexPageProps>> = (
             <p>Welcome to your new Gatsby site.</p>
             <p>Now go build something great.</p>
             <StaticImage
-                src="../images/gatsby-astronaut.png"
+                src="../assets/images/gatsby-astronaut.png"
                 width={ 300 }
                 quality={ 95 }
                 formats={ ["AUTO", "WEBP", "AVIF"] }
