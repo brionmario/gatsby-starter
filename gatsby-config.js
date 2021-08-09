@@ -26,12 +26,30 @@ module.exports = {
     plugins: [
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-image",
-        "gatsby-plugin-sass",
+        "gatsby-plugin-postcss",
         {
             options: {
-                exclude: ["node_modules", ".cache", "public"],
-                extensions: ["js", "jsx"],
-                stages: ["develop"]
+                postCssPlugins: [
+                    require("tailwindcss"),
+                    require("./tailwind.config.js")
+                ]
+            },
+            resolve: "gatsby-plugin-sass"
+        },
+        {
+            options: {
+                exclude: [
+                    "node_modules",
+                    ".cache",
+                    "public"
+                ],
+                extensions: [
+                    "js",
+                    "jsx"
+                ],
+                stages: [
+                    "develop"
+                ]
             },
             resolve: "gatsby-plugin-eslint"
         },
@@ -46,20 +64,17 @@ module.exports = {
         "gatsby-plugin-sharp",
         {
             options: {
-                background_color: "#663399",
+                background_color: "#F89C68",
                 display: "minimal-ui",
-                icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
-                name: "gatsby-starter-default",
-                short_name: "starter",
+                icon: "src/assets/images/logo-aparecium-fox-only.svg",
+                name: "apareciumlabs-official-website",
+                short_name: "apareciumlabs",
                 start_url: "/",
-                theme_color: "#663399"
+                theme_color: "#F89C68"
             },
             resolve: "gatsby-plugin-manifest"
         },
         "gatsby-plugin-gatsby-cloud"
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     ],
     siteMetadata: {
         author: "@brionmario",

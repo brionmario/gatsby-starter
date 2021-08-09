@@ -22,10 +22,9 @@
  * SOFTWARE.
  */
 
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
-
-import "./src/assets/styles/apareciumlabs.scss";
+module.exports = {
+    plugins: {
+        autoprefixer: {},
+        tailwindcss: {}
+    }
+};

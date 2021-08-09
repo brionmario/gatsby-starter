@@ -22,10 +22,19 @@
  * SOFTWARE.
  */
 
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const defaultTheme = require("tailwindcss/defaultTheme");
 
-import "./src/assets/styles/apareciumlabs.scss";
+module.exports = {
+    darkMode: false, // or 'media' or 'class'
+    plugins: [],
+    purge: [
+        // Paths to all of your pages and components so Tailwind can
+        // tree-shake unused styles in production builds:
+        "./src/**/*.{js,jsx,ts,tsx}"
+    ],
+    theme: {
+        extend: {}
+    },
+    variants: {}
+};
