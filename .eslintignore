@@ -1,0 +1,5 @@
+node_modules
+.cache
+
+# Ignore all declaration files
+/src/**/*.d.ts
