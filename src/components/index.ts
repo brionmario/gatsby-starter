@@ -22,5 +22,7 @@
  * SOFTWARE.
  */
 
+export * from "./footer";
 export * from "./header";
 export * from "./seo";
+export * from "./hero";

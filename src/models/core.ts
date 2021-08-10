@@ -22,9 +22,22 @@
  * SOFTWARE.
  */
 
+/**
+ * Component to provide attributes necessary for testing the component.
+ */
 export interface TestableComponentInterface {
     /**
      * Test ID for the component.
      */
     "data-testid": string;
+}
+
+/**
+ * Component to provide attributes necessary for styling the component.
+ */
+export interface StylableComponentInterface {
+    /**
+     * CSS class for the component.
+     */
+    className?: string;
 }

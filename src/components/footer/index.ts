@@ -22,5 +22,5 @@
  * SOFTWARE.
  */
 
-export * from "./base-layout";
-export * from "./site-layout";
+export * from "./footer";
+export * from "./copyright";

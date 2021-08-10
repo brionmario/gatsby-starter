@@ -22,19 +22,32 @@
  * SOFTWARE.
  */
 
+import cx from "classnames";
 import { graphql, useStaticQuery } from "gatsby";
-import React, { FunctionComponent, PropsWithChildren } from "react";
+import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react";
 import { Header } from "../components";
-import { TestableComponentInterface } from "../models";
+import { Footer } from "../components/footer";
+import { StylableComponentInterface, TestableComponentInterface } from "../models";
 
-type ILayoutProps = TestableComponentInterface;
+/**
+ * Interface for the Site layout component props.
+ */
+interface ISiteLayoutProps extends TestableComponentInterface, StylableComponentInterface {
+}
 
-export const Layout: FunctionComponent<ILayoutProps> = (
-    props: PropsWithChildren<ILayoutProps>
-) => {
+/**
+ * Parent Layout for all pages that requires Header, Footer.
+ *
+ * @param {React.PropsWithChildren<ISiteLayoutProps>} props - Props injected to the component.
+ * @return {React.ReactElement}
+ */
+export const SiteLayout: FunctionComponent<ISiteLayoutProps> = (
+    props: PropsWithChildren<ISiteLayoutProps>
+): ReactElement => {
 
     const {
-        children
+        children,
+        [ "data-testid" ]: testId
     } = props;
 
     const data = useStaticQuery(graphql`
@@ -47,30 +60,29 @@ export const Layout: FunctionComponent<ILayoutProps> = (
         }
     `);
 
-    return (
-        <>
-            <Header siteTitle={ data.site.siteMetadata.title || "Title" } />
-            <div
-                style={ {
-                    margin: "0 auto",
-                    maxWidth: 960,
-                    padding: "0 1.0875rem 1.45rem"
-                } }
-            >
-                <main>{ children }</main>
-                <footer
-                    style={ {
-                        marginTop: "2rem"
-                    } }
-                >
-                    ©
-                    { " " }
-                    { new Date().getFullYear() }
-                    , Built with
-                    { " " }
-                    <a href="https://www.gatsbyjs.com">Gatsby</a>
-                </footer>
-            </div>
-        </>
+    const classes = cx(
+        "site-layout",
+        "flex flex-col min-h-screen"
     );
+
+    return (
+        <div data-testid={ testId } className={ classes }>
+            <Header
+                siteTitle={ data.site.siteMetadata.title || "Title" }
+                data-testid="header"
+            />
+            <div className="flex-grow">
+                { children }
+            </div>
+            <Footer data-testid="footer" />
+        </div>
+    );
+};
+
+/**
+ * Default props for the component.
+ * @type {{"data-testid": string}}
+ */
+SiteLayout.defaultProps = {
+    "data-testid": "site-layout"
 };

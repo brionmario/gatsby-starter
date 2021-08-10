@@ -23,25 +23,62 @@
  */
 
 import { graphql, useStaticQuery } from "gatsby";
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactElement } from "react";
 import { Helmet } from "react-helmet";
 
+/**
+ * Interface for the SEO component props.
+ */
 interface ISEOProps {
-  description?: string,
-  lang?: string,
-  meta?: Array<{name: string, content: string}> | any,
-  title: string
+    /**
+     * Site Description.
+     * @see {@link https://moz.com/learn/seo/meta-description}
+     */
+    description?: string;
+    /**
+     * Language of the element's content.
+     * @see {@link https://www.w3schools.com/tags/att_global_lang.asp}
+     */
+    lang?: string;
+    /**
+     * Metadata about an HTML document.
+     * @see {@link https://www.w3schools.com/tags/tag_meta.asp}
+     */
+    meta?: Array<{ name: string, content: string }> | any;
+    /**
+     * Title of the document.
+     * @see {@link https://www.w3schools.com/tags/tag_title.asp}
+     */
+    title: string
 }
 
+/**
+ * Interface for the GraphQL Site info query.
+ */
 interface ISiteQuery {
     siteMetadata: {
+        /**
+         * Site Title.
+         */
         title: string;
+        /**
+         * Site Description.
+         */
         description: string;
+        /**
+         * Site Author.
+         */
         author: string;
     }
 }
 
-export const SEO: FunctionComponent<ISEOProps> = (props: ISEOProps) => {
+/**
+ * SEO Component.
+ *
+ * @param {ISEOProps} props - Props injected to the component.
+ * @return {React.ReactElement}
+ */
+export const SEO: FunctionComponent<ISEOProps> = (props: ISEOProps): ReactElement => {
 
     const {
         description,
@@ -112,6 +149,10 @@ export const SEO: FunctionComponent<ISEOProps> = (props: ISEOProps) => {
     );
 };
 
+/**
+ * Default props for the component.
+ * @type {{meta: any[]; description: string; lang: string}}
+ */
 SEO.defaultProps = {
     description: "",
     lang: "en",

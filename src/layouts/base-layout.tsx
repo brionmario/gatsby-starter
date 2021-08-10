@@ -22,53 +22,52 @@
  * SOFTWARE.
  */
 
-import { PageProps } from "gatsby";
-import React, { FunctionComponent, ReactElement } from "react";
-import { Hero, SEO } from "../components";
-import { BaseLayout, SiteLayout } from "../layouts"
-import { TestableComponentInterface } from "../models";
+import cx from "classnames";
+import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react"
+import { StylableComponentInterface, TestableComponentInterface } from "../models";
 
 /**
- * Interface for the Index Page props.
+ * Interface for the Base layout component props.
  */
-type IIndexPageProps = TestableComponentInterface;
+interface IBaseLayoutProps extends TestableComponentInterface, StylableComponentInterface {
+}
 
 /**
- * Home page of the site.
+ * Parent Layout to wrap all other layouts.
  *
- * @param {PageProps<IIndexPageProps>} props - Props injected to the component.
+ * @remarks This can be used to provide base CSS classes, re-usable components that are required for
+ * all other layouts.
+ *
+ * @param {React.PropsWithChildren<IBaseLayoutProps>} props - Props injected to the component.
  * @return {React.ReactElement}
  */
-const IndexPage: FunctionComponent<PageProps<IIndexPageProps>> = (
-    props: PageProps<IIndexPageProps>
+export const BaseLayout: FunctionComponent<IBaseLayoutProps> = (
+    props: PropsWithChildren<IBaseLayoutProps>
 ): ReactElement => {
 
     const {
-        data
+        children,
+        className,
+        [ "data-testid" ]: testId
     } = props;
 
-    const {
-        "data-testid": testId
-    } = data;
+    const classes = cx(
+        "base-layout",
+        "bg-gray-900",
+        className
+    );
 
     return (
-        <BaseLayout data-testid={ `${ testId }-base-layout` }>
-            <SiteLayout data-testid={ `${ testId }-site-layout` }>
-                <SEO title="Home" />
-                <Hero data-testid={ `${ testId }-hero` } />
-            </SiteLayout>
-        </BaseLayout>
+        <div data-testid={ testId } className={ classes }>
+            { children }
+        </div>
     );
 };
 
 /**
  * Default props for the component.
- * @type {{data: {"data-testid": string}}}
+ * @type {{"data-testid": string}}
  */
-IndexPage.defaultProps = {
-    data: {
-        "data-testid": "index-page"
-    }
+BaseLayout.defaultProps = {
+    "data-testid": "base-layout"
 };
-
-export default IndexPage;
