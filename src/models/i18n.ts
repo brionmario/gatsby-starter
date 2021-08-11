@@ -22,8 +22,38 @@
  * SOFTWARE.
  */
 
-export * from "./footer";
-export * from "./header";
-export * from "./language-switcher";
-export * from "./seo";
-export * from "./hero";
+/**
+ * Interface for Gatsby i18n language config.
+ *
+ * @remarks Gatsby Theme i18n does not currently have types for config. Once they support,
+ * this interface can be removed.
+ * @see @{link https://github.com/gatsbyjs/themes/blob/v3/packages/gatsby-theme-i18n/index.d.ts#L36 }
+ */
+export interface IGatsbyI18LanguageConfig {
+
+    /**
+     * The ISO 3166-1 alpha-2 code which will be used for the path prefix,
+     * as a unique identifier (e.g. for the defaultLang option)
+     */
+    code: string;
+    /**
+     * The IETF language tag for the <html lang="xx-XX" /> attribute. Also used for og tags
+     */
+    hrefLang: string;
+    /**
+     * The english name of the locale
+     */
+    name: string;
+    /**
+     * The local name of the locale
+     */
+    localName: string;
+    /**
+     * The direction of language (e.g. "ltr", "rtl")
+     */
+    langDir: "ltr" | "rtl";
+    /**
+     * The tokens that Moment.js accepts for date formatting. This can be used for dates on GraphQL queries
+     */
+    dateFormat: string;
+}
