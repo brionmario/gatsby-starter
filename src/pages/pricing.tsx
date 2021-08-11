@@ -24,6 +24,7 @@
 
 import { PageProps } from "gatsby";
 import React, { FunctionComponent, ReactElement } from "react";
+import { useTranslation } from "react-i18next";
 import { SEO } from "../components";
 import { BaseLayout, SiteLayout } from "../layouts";
 import { TestableComponentInterface } from "../models";
@@ -50,6 +51,8 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
     const {
         "data-testid": testId
     } = data;
+
+    const { t } = useTranslation();
 
     return (
         <BaseLayout data-testid={ `${ testId }-base-layout` }>
@@ -82,8 +85,8 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                     viewBox="0 0 52 24"
                                     fill="currentColor"
                                     className={
-                                        "absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 " +
-                                        "lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+                                        "absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 " +
+                                            "text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
                                     }
                                 >
                                     <defs>
@@ -103,14 +106,9 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                         height="24"
                                     />
                                 </svg>
-                                <span className="relative">Transparent</span>
-                            </span>{ " " }
-                            pricing. Pay as you grow.
+                            </span>
+                            { t("pricing:heading.title") }
                         </h2>
-                        <p className="text-base text-gray-700 md:text-lg">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque rem aperiam, eaque ipsa quae.
-                        </p>
                     </div>
                     <div
                         className={
@@ -125,14 +123,24 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                             }
                         >
                             <div className="text-center">
-                                <div className="text-lg font-semibold">Start</div>
+                                <div className="text-lg font-semibold">
+                                    { t("pricing:heading.packages.start.heading") }
+                                </div>
                                 <div className="flex items-center justify-center mt-2">
-                                    <div className="mr-1 text-5xl font-bold">Free</div>
+                                    <div className="mr-1 text-5xl font-bold">
+                                        { t("pricing:heading.packages.start.price") }
+                                    </div>
                                 </div>
                                 <div className="mt-2 space-y-3">
-                                    <div className="text-gray-700">10 deploys per day</div>
-                                    <div className="text-gray-700">10 GB of storage</div>
-                                    <div className="text-gray-700">20 domains</div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.start.deploys") }
+                                    </div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.start.storage") }
+                                    </div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.start.domain") }
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -145,16 +153,8 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                         "focus:outline-none"
                                     }
                                 >
-                                    Start for free
+                                    { t("pricing:heading.packages.start.action") }
                                 </a>
-                                <p
-                                    className={
-                                        "max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center " +
-                                        "sm:max-w-sm sm:mx-auto"
-                                    }
-                                >
-                                    Sed ut unde omnis iste natus accusantium doloremque.
-                                </p>
                             </div>
                         </div>
                         <div
@@ -171,19 +171,27 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                         "uppercase rounded bg-deep-purple-accent-400"
                                     }
                                 >
-                                    Most Popular
+                                    { t("pricing:heading.mostPopularPackageLabel") }
                                 </div>
                             </div>
                             <div className="text-center">
-                                <div className="text-lg font-semibold">Pro</div>
+                                <div className="text-lg font-semibold">
+                                    { t("pricing:heading.packages.pro.action") }
+                                </div>
                                 <div className="flex items-center justify-center mt-2">
                                     <div className="mr-1 text-5xl font-bold">$38</div>
                                     <div className="text-gray-700">/ mo</div>
                                 </div>
                                 <div className="mt-2 space-y-3">
-                                    <div className="text-gray-700">200 deploys per day</div>
-                                    <div className="text-gray-700">80 GB of storage</div>
-                                    <div className="text-gray-700">Global CDN</div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.pro.deploys") }
+                                    </div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.pro.storage") }
+                                    </div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.pro.domains") }
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -196,16 +204,8 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                         "focus:shadow-outline focus:outline-none"
                                     }
                                 >
-                                    Buy Pro
+                                    { t("pricing:heading.packages.pro.action") }
                                 </a>
-                                <p
-                                    className={
-                                        "max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm " +
-                                        "sm:mx-auto"
-                                    }
-                                >
-                                    Sed ut unde omnis iste natus accusantium doloremque.
-                                </p>
                             </div>
                         </div>
                         <div
@@ -215,15 +215,23 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                             }
                         >
                             <div className="text-center">
-                                <div className="text-lg font-semibold">Business</div>
+                                <div className="text-lg font-semibold">
+                                    { t("pricing:heading.packages.business.heading") }
+                                </div>
                                 <div className="flex items-center justify-center mt-2">
                                     <div className="mr-1 text-5xl font-bold">$78</div>
                                     <div className="text-gray-700">/ mo</div>
                                 </div>
                                 <div className="mt-2 space-y-3">
-                                    <div className="text-gray-700">500 GB of storage</div>
-                                    <div className="text-gray-700">Unlimited domains</div>
-                                    <div className="text-gray-700">24/7 Support</div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.business.deploys") }
+                                    </div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.business.storage") }
+                                    </div>
+                                    <div className="text-gray-700">
+                                        { t("pricing:heading.packages.business.domains") }
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -235,16 +243,8 @@ const PricingPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                         "shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
                                     }
                                 >
-                                    Buy Business
+                                    { t("pricing:heading.packages.business.action") }
                                 </a>
-                                <p
-                                    className={
-                                        "max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm " +
-                                        "sm:mx-auto"
-                                    }
-                                >
-                                    Sed ut unde omnis iste natus accusantium doloremque.
-                                </p>
                             </div>
                         </div>
                     </div>

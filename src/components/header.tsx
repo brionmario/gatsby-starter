@@ -38,10 +38,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Popover, Transition } from "@headlessui/react";
 import cx from "classnames";
+import { LocalizedLink, useLocalization } from "gatsby-theme-i18n";
 import React, { Fragment, FunctionComponent, ReactElement } from "react";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "./language-switcher";
 import ApareciumLogoText from "../assets/images/logo-aparecium-text-only.svg";
 import { TestableComponentInterface } from "../models";
-import { Link } from "gatsby"
 
 /**
  * Interface for the Header component props.
@@ -52,97 +54,6 @@ interface IHeaderProps extends TestableComponentInterface {
      */
     siteTitle?: string;
 }
-
-const solutions: ({ icon: IconDefinition; name: string; description: string; href: string })[] = [
-    {
-        description: "Get a better understanding of where your traffic is coming from.",
-        href: "#",
-        icon: faChartBar,
-        name: "Analytics"
-    },
-    {
-        description: "Speak directly to your customers in a more meaningful way.",
-        href: "#",
-        icon: faMousePointer,
-        name: "Engagement"
-    },
-    {
-        description: "Your customers' data will be safe and secure.",
-        href: "#",
-        icon: faShieldVirus,
-        name: "Security"
-    },
-    {
-        description: "Connect with third-party tools that you're already using.",
-        href: "#",
-        icon: faBorderNone,
-        name: "Integrations"
-    },
-    {
-        description: "Build strategic funnels that will drive your customers to convert",
-        href: "#",
-        icon: faSyncAlt,
-        name: "Automations"
-    }
-];
-
-const callsToAction: ({ icon: IconDefinition; name: string; href: string })[] = [
-    {
-        href: "#",
-        icon: faPlayCircle,
-        name: "Watch Demo"
-    },
-    {
-        href: "#",
-        icon: faPhone,
-        name: "Contact Sales"
-    }
-];
-
-const resources: ({ icon: IconDefinition; name: string; description: string; href: string })[] = [
-    {
-        description: "Get all of your questions answered in our forums or contact support.",
-        href: "#",
-        icon: faHeadphonesAlt,
-        name: "Help Center"
-    },
-    {
-        description: "Learn how to maximize our platform to get the most out of it.",
-        href: "#",
-        icon: faBookmark,
-        name: "Guides"
-    },
-    {
-        description: "See what meet-ups and other events we might be planning near you.",
-        href: "#",
-        icon: faCalendarAlt,
-        name: "Events"
-    },
-    {
-        description: "Understand how we take your privacy seriously.",
-        href: "#",
-        icon: faShieldVirus,
-        name: "Security"
-    }
-];
-
-const recentPosts: ({ name: string; href: string; id: number })[] = [
-    {
-        href: "#",
-        id: 1,
-        name: "Boost your conversion rate"
-    },
-    {
-        href: "#",
-        id: 2,
-        name: "How to use search engine optimization to drive traffic to your site"
-    },
-    {
-        href: "#",
-        id: 3,
-        name: "Improve your customer experience"
-    }
-];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
@@ -159,6 +70,100 @@ export const Header: FunctionComponent<IHeaderProps> = (
     const {
         [ "data-testid" ]: testId
     } = props;
+
+    const { locale } = useLocalization();
+    const { t } = useTranslation();
+
+    const solutions: ({ icon: IconDefinition; name: string; description: string; href: string })[] = [
+        {
+            description: t("common:header.links.solutions.analytics.description"),
+            href: "#",
+            icon: faChartBar,
+            name: t("common:header.links.solutions.analytics.title")
+        },
+        {
+            description: t("common:header.links.solutions.engagement.description"),
+            href: "#",
+            icon: faMousePointer,
+            name: t("common:header.links.solutions.engagement.title")
+        },
+        {
+            description: t("common:header.links.solutions.security.description"),
+            href: "#",
+            icon: faShieldVirus,
+            name: t("common:header.links.solutions.security.title")
+        },
+        {
+            description: t("common:header.links.solutions.integrations.description"),
+            href: "#",
+            icon: faBorderNone,
+            name: t("common:header.links.solutions.integrations.title")
+        },
+        {
+            description: t("common:header.links.solutions.automations.description"),
+            href: "#",
+            icon: faSyncAlt,
+            name: t("common:header.links.solutions.automations.title")
+        }
+    ];
+
+    const callsToAction: ({ icon: IconDefinition; name: string; href: string })[] = [
+        {
+            href: "#",
+            icon: faPlayCircle,
+            name: t("common:header.links.solutions.callToAction.watchDemo")
+        },
+        {
+            href: "#",
+            icon: faPhone,
+            name: t("common:header.links.solutions.callToAction.contactSales")
+        }
+    ];
+
+    const resources: ({ icon: IconDefinition; name: string; description: string; href: string })[] = [
+        {
+            description: t("common:header.links.more.helpCenter.description"),
+            href: "#",
+            icon: faHeadphonesAlt,
+            name: t("common:header.links.more.helpCenter.title")
+        },
+        {
+            description: t("common:header.links.more.guides.description"),
+            href: "#",
+            icon: faBookmark,
+            name: t("common:header.links.more.guides.title")
+        },
+        {
+            description: t("common:header.links.more.events.description"),
+            href: "#",
+            icon: faCalendarAlt,
+            name: t("common:header.links.more.events.title")
+        },
+        {
+            description: t("common:header.links.more.security.description"),
+            href: "#",
+            icon: faShieldVirus,
+            name: t("common:header.links.more.security.title")
+        }
+    ];
+
+    const recentPosts: ({ name: string; href: string; id: number })[] = [
+        {
+            href: "#",
+            id: 1,
+            name: t("common:header.links.more.recentPosts.links.boost")
+        },
+        {
+            href: "#",
+            id: 2,
+            name: t("common:header.links.more.recentPosts.links.seo")
+        },
+        {
+            href: "#",
+            id: 3,
+            name: t("common:header.links.more.recentPosts.links.csa")
+        }
+    ];
 
     return (
         <Popover data-testid={ testId } className="relative">
@@ -199,12 +204,13 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                 </Popover.Button>
                             </div>
                             <Popover.Group as="nav" className="hidden md:flex space-x-10">
-                                <Link
+                                <LocalizedLink
+                                    language={ locale }
                                     to="/"
                                     className="text-base font-medium text-gray-500 hover:text-gray-100"
                                 >
-                                    Home
-                                </Link>
+                                    { t("dictionary:homePage") }
+                                </LocalizedLink>
                                 <Popover className="relative">
                                     { ({ open }) => (
                                         <>
@@ -215,7 +221,7 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                                     "hover:text-gray-100 focus:outline-none"
                                                 ) }
                                             >
-                                                <span>Solutions</span>
+                                                <span> { t("dictionary:solutions") }</span>
                                                 <FontAwesomeIcon
                                                     className={ cx(
                                                         open ? "text-gray-600" : "text-gray-400",
@@ -325,17 +331,18 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                         </>
                                     ) }
                                 </Popover>
-                                <Link
+                                <LocalizedLink
+                                    language={ locale }
                                     to="/pricing"
                                     className="text-base font-medium text-gray-500 hover:text-gray-100"
                                 >
-                                    Pricing
-                                </Link>
+                                    { t("dictionary:pricing") }
+                                </LocalizedLink>
                                 <a
                                     href="#"
                                     className="text-base font-medium text-gray-500 hover:text-gray-100"
                                 >
-                                    Docs
+                                    { t("dictionary:docs") }
                                 </a>
 
                                 <Popover className="relative">
@@ -348,7 +355,7 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                                     "font-medium hover:text-gray-100 focus:outline-none"
                                                 ) }
                                             >
-                                                <span>More</span>
+                                                <span>{ t("dictionary:more") }</span>
                                                 <FontAwesomeIcon
                                                     aria-hidden="true"
                                                     className={ cx(
@@ -429,7 +436,10 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                                                         "text-gray-500 uppercase"
                                                                     }
                                                                 >
-                                                                    Recent Posts
+                                                                    {
+                                                                        t("common:header.links.more.recentPosts" +
+                                                                            ".heading")
+                                                                    }
                                                                 </h3>
                                                                 <ul className="mt-4 space-y-4">
                                                                     { recentPosts.map((post) => (
@@ -459,7 +469,11 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                                                     }
                                                                 >
                                                                     { " " }
-                                                                    View all posts{ " " }
+                                                                    {
+                                                                        t("common:header.links.more.recentPosts" +
+                                                                            ".action")
+                                                                    }
+                                                                    { " " }
                                                                     <span aria-hidden="true">&rarr;</span>
                                                                 </a>
                                                             </div>
@@ -473,12 +487,11 @@ export const Header: FunctionComponent<IHeaderProps> = (
                             </Popover.Group>
                             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                                 <a
-                                    href="#"
                                     className={
                                         "whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-100"
                                     }
                                 >
-                                    Sign in
+                                    <LanguageSwitcher data-testid="language-switcher" />
                                 </a>
                                 <a
                                     href="#"
@@ -488,7 +501,7 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                         "text-white bg-deep-orange-accent-400 hover:bg-deep-orange-accent-700"
                                     }
                                 >
-                                    Sign up
+                                    { t("dictionary:signUp") }
                                 </a>
                             </div>
                         </div>
@@ -571,18 +584,20 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                 </div>
                                 <div className="py-6 px-5 space-y-6">
                                     <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                                        <Link
+                                        <LocalizedLink
+                                            language={ locale }
                                             to="/"
                                             className="text-base font-medium text-gray-500 hover:text-gray-100"
                                         >
                                             Home
-                                        </Link>
-                                        <Link
+                                        </LocalizedLink>
+                                        <LocalizedLink
+                                            language={ locale }
                                             to="/pricing"
                                             className="text-base font-medium text-gray-900 hover:text-gray-700"
                                         >
                                             Pricing
-                                        </Link>
+                                        </LocalizedLink>
 
                                         <a
                                             href="#"
@@ -609,19 +624,8 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                                 "text-white bg-deep-orange-accent-400 hover:bg-deep-orange-accent-700"
                                             }
                                         >
-                                            Sign up
+                                            { t("dictionary:signUp") }
                                         </a>
-                                        <p className="mt-6 text-center text-base font-medium text-gray-500">
-                                            Existing customer?{ " " }
-                                            <a
-                                                href="#"
-                                                className={
-                                                    "text-deep-orange-accent-400 hover:text-deep-orange-accent-700"
-                                                }
-                                            >
-                                                Sign in
-                                            </a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>

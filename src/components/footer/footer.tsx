@@ -26,6 +26,7 @@ import { faFacebook, faGithub, faInstagram, faTwitter } from "@fortawesome/free-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import cx from "classnames";
 import React, { FunctionComponent, ReactElement } from "react";
+import { useTranslation } from "react-i18next";
 import { Copyright } from "./copyright";
 import { StylableComponentInterface, TestableComponentInterface } from "../../models";
 
@@ -49,6 +50,8 @@ export const Footer: FunctionComponent<IFooterProps> = (
         [ "data-testid" ]: testId
     } = props;
 
+    const { t } = useTranslation();
+
     const classes = cx(
         "footer",
         "px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
@@ -60,7 +63,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                 <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
                     <div>
                         <p className="font-medium tracking-wide text-gray-300">
-                            Category
+                            { t("common:footer.links.categories.1.heading") }
                         </p>
                         <ul className="mt-2 space-y-2">
                             <li>
@@ -70,7 +73,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                         "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
                                     }
                                 >
-                                    News
+                                    { t("common:footer.links.categories.1.subLinks.1") }
                                 </a>
                             </li>
                             <li>
@@ -80,7 +83,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                         "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
                                     }
                                 >
-                                    World
+                                    { t("common:footer.links.categories.1.subLinks.2") }
                                 </a>
                             </li>
                             <li>
@@ -90,134 +93,14 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                         "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
                                     }
                                 >
-                                    Games
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    References
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p className="font-medium tracking-wide text-gray-300">Apples</p>
-                        <ul className="mt-2 space-y-2">
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Web
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    eCommerce
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Business
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Entertainment
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Portfolio
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p className="font-medium tracking-wide text-gray-300">Cherry</p>
-                        <ul className="mt-2 space-y-2">
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Media
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Brochure
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Nonprofit
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Educational
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/"
-                                    className={
-                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
-                                    }
-                                >
-                                    Projects
+                                    { t("common:footer.links.categories.1.subLinks.3") }
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <p className="font-medium tracking-wide text-gray-300">
-                            Business
+                            { t("common:footer.links.categories.2.heading") }
                         </p>
                         <ul className="mt-2 space-y-2">
                             <li>
@@ -227,7 +110,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                         "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
                                     }
                                 >
-                                    Infopreneur
+                                    { t("common:footer.links.categories.2.subLinks.1") }
                                 </a>
                             </li>
                             <li>
@@ -237,7 +120,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                         "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
                                     }
                                 >
-                                    Personal
+                                    { t("common:footer.links.categories.2.subLinks.2") }
                                 </a>
                             </li>
                             <li>
@@ -247,7 +130,24 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                         "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
                                     }
                                 >
-                                    Wiki
+                                    { t("common:footer.links.categories.2.subLinks.3") }
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p className="font-medium tracking-wide text-gray-300">
+                            { t("common:footer.links.categories.3.heading") }
+                        </p>
+                        <ul className="mt-2 space-y-2">
+                            <li>
+                                <a
+                                    href="/"
+                                    className={
+                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
+                                    }
+                                >
+                                    { t("common:footer.links.categories.3.subLinks.1") }
                                 </a>
                             </li>
                             <li>
@@ -257,7 +157,54 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                         "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
                                     }
                                 >
-                                    Forum
+                                    { t("common:footer.links.categories.3.subLinks.2") }
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/"
+                                    className={
+                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
+                                    }
+                                >
+                                    { t("common:footer.links.categories.3.subLinks.3") }
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p className="font-medium tracking-wide text-gray-300">
+                            { t("common:footer.links.categories.3.heading") }
+                        </p>
+                        <ul className="mt-2 space-y-2">
+                            <li>
+                                <a
+                                    href="/"
+                                    className={
+                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
+                                    }
+                                >
+                                    { t("common:footer.links.categories.4.subLinks.1") }
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/"
+                                    className={
+                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
+                                    }
+                                >
+                                    { t("common:footer.links.categories.4.subLinks.2") }
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/"
+                                    className={
+                                        "text-gray-500 transition-colors duration-300 hover:text-deep-orange-accent-700"
+                                    }
+                                >
+                                    { t("common:footer.links.categories.4.subLinks.3") }
                                 </a>
                             </li>
                         </ul>
@@ -266,7 +213,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                 <div className="md:max-w-md lg:col-span-2 mt-6 lg:mt-0">
                     <div>
                         <span className="font-medium tracking-wide text-gray-300">
-                            Social
+                            { t("common:footer.social.heading") }
                         </span>
                         <div className="flex items-center mt-3 space-x-3">
                             <a
@@ -311,9 +258,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                             </a>
                         </div>
                         <p className="mt-4 text-sm text-gray-500">
-                            Lets socialize over these channels.
-                            <br />
-                            If you have any question or suggestions, please open up an issue on GitHub.
+                            { t("common:footer.social.description") }
                         </p>
                     </div>
                 </div>
@@ -328,7 +273,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                 "text-sm text-gray-600 transition-colors duration-300 hover:text-deep-orange-accent-400"
                             }
                         >
-                            F.A.Q
+                            { t("common:footer.links.other.faq") }
                         </a>
                     </li>
                     <li>
@@ -338,7 +283,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                 "text-sm text-gray-600 transition-colors duration-300 hover:text-deep-orange-accent-400"
                             }
                         >
-                            Privacy Policy
+                            { t("common:footer.links.other.privacyPolicy") }
                         </a>
                     </li>
                     <li>
@@ -348,7 +293,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
                                 "text-sm text-gray-600 transition-colors duration-300 hover:text-deep-orange-accent-400"
                             }
                         >
-                            Terms &amp; Conditions
+                            { t("common:footer.links.other.terms") }
                         </a>
                     </li>
                 </ul>

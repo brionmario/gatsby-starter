@@ -24,6 +24,7 @@
 
 import cx from "classnames";
 import React, { FunctionComponent, ReactElement } from "react";
+import { Trans } from "react-i18next";
 import ApareciumLabsFoxIcon from "../../assets/images/logo-aparecium-fox-only.svg";
 import { StylableComponentInterface, TestableComponentInterface } from "../../models";
 
@@ -71,15 +72,33 @@ export const Copyright: FunctionComponent<ICopyrightProps> = (
 
     return (
         <div data-testid={ testId } className={ classes }>
-            <p>&copy; Copyright { getYear() }</p>
-            <img
-                alt="Apareciumlabs Logo Copyright"
-                className="mr-2 ml-2"
-                src={ ApareciumLabsFoxIcon }
-                width="20px"
-                height="20px"
-            />
-            <p>Aparecium Labs. All rights reserved.</p>
+            <Trans
+                i18nKey="common:footer.copyright"
+                tOptions={ { year: getYear() } }
+                components={
+                    {
+                        image: (
+                            <img
+                                alt="Apareciumlabs Logo Copyright"
+                                className="mr-2 ml-2"
+                                src={ ApareciumLabsFoxIcon }
+                                width="20px"
+                                height="20px"
+                            />
+                        )
+                    }
+                }
+            >
+                &copy; Copyright { getYear() }
+                <img
+                    alt="Apareciumlabs Logo Copyright"
+                    className="mr-2 ml-2"
+                    src={ ApareciumLabsFoxIcon }
+                    width="20px"
+                    height="20px"
+                />
+                <p>Aparecium Labs. All rights reserved.</p>
+            </Trans>
         </div>
     );
 };

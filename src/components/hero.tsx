@@ -22,8 +22,11 @@
  * SOFTWARE.
  */
 
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import cx from "classnames";
 import React, { FunctionComponent, ReactElement } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import ApareciumLabsFoxIcon from "../assets/images/logo-aparecium-fox-only.svg";
 import { StylableComponentInterface, TestableComponentInterface } from "../models";
 
@@ -47,6 +50,8 @@ export const Hero: FunctionComponent<IHeroProps> = (
         className,
         [ "data-testid" ]: testId
     } = props;
+
+    const { t } = useTranslation();
 
     const classes = cx(
         "hero",
@@ -78,18 +83,25 @@ export const Hero: FunctionComponent<IHeroProps> = (
                                 "sm:text-4xl sm:leading-none"
                             }
                         >
-                            Subscribe to our
-                            <br className="hidden md:block"/>
-                            <span className="inline-block text-deep-orange-accent-400">
-                                Newsletter
-                            </span>
+                            <Trans
+                                i18nKey={ "home:newsletter.title" }
+                            >
+                                Subscribe to our
+                                <br className="hidden md:block"/>
+                                <span className="inline-block text-deep-orange-accent-400">
+                                    Newsletter
+                                </span>
+                            </Trans>
                         </h2>
                         <p className="text-base text-gray-700 md:text-lg">
-                            We<code style={ { color: "red", margin: "0 6px" } }>&hearts;</code>
-                            open-source and always trying our
-                            best to contribute back to the community. Please Subscribe
-                            to our newsletter to stay up to date with more awesome
-                            projects like this.
+                            <Trans
+                                i18nKey="home:newsletter.description"
+                            >
+                                We <FontAwesomeIcon className="ml-2 mr-2 text-red-700" icon={ faHeart } /> open-source
+                                and always trying our best to contribute back to the community. Please Subscribe
+                                to our newsletter to stay up to date with more awesome
+                                projects like this.
+                            </Trans>
                         </p>
                     </div>
                     <form
@@ -116,7 +128,7 @@ export const Hero: FunctionComponent<IHeroProps> = (
                                         "md:mb-0 focus:border-deep-orange-accent-700 focus:outline-none text-white " +
                                         "focus:shadow-outline"
                                     }
-                                    placeholder="Email address"
+                                    placeholder={ t("home:newsletter.subscribe.emailInput.placeholder") }
                                     required
                                 />
                             </div>
@@ -151,7 +163,7 @@ export const Hero: FunctionComponent<IHeroProps> = (
                                     "focus:shadow-outline focus:outline-none"
                                 }
                             >
-                                Subscribe
+                                { t("home:newsletter.subscribe.submitButton.label") }
                             </button>
                         </div>
                     </form>
