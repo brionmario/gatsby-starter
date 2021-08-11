@@ -28,4 +28,4 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-import "./src/assets/styles/apareciumlabs.scss";
+import "./src/assets/styles/index.scss";
