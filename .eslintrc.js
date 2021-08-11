@@ -150,9 +150,8 @@ module.exports = {
             "error",
             4,
             {
-                checkAttributes: true,
-                indentLogicalExpressions:
-                    true
+                checkAttributes: false,
+                indentLogicalExpressions: true
             }
         ],
         "react/jsx-indent-props": [
@@ -175,7 +174,7 @@ module.exports = {
             {
                 caseSensitive: true,
                 minKeys: 2,
-                natural: false
+                natural: true // allows 50, 100 instead of 100, 50 which is not natural.
             }
         ]
     },
