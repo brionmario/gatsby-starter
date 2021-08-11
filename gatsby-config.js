@@ -74,7 +74,23 @@ module.exports = {
             },
             resolve: "gatsby-plugin-manifest"
         },
-        "gatsby-plugin-gatsby-cloud"
+        "gatsby-plugin-gatsby-cloud",
+        {
+            options: {
+                configPath: require.resolve("./i18n/config.json"),
+                defaultLang: "en"
+            },
+            resolve: "gatsby-theme-i18n"
+        },
+        {
+            options: {
+                i18nextOptions: {
+                    ns: [ "dictionary", "common", "home", "pricing" ]
+                },
+                locales: "./i18n/translations"
+            },
+            resolve: "gatsby-theme-i18n-react-i18next"
+        }
     ],
     siteMetadata: {
         author: "@brionmario",
