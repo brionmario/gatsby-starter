@@ -23,7 +23,7 @@
  */
 
 import cx from "classnames";
-import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react"
+import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react";
 import { StylableComponentInterface, TestableComponentInterface } from "../models";
 
 /**
