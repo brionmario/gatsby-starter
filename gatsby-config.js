@@ -97,7 +97,7 @@ module.exports = {
                     "**/*.{css,scss}"
                 ]
             },
-            resolve: "gatsby-plugin-stylelint"
+            resolve: "@danbruegge/gatsby-plugin-stylelint"
         }
     ],
     siteMetadata: {
