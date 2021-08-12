@@ -183,6 +183,26 @@ npm run lint:styles
 
 ## Testing
 
+### Unit Tests
+
+Execute the following command to run your unit tests.
+
+```bash
+npm test
+```
+
+> We have used [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit testing.
+
+### End-To-End Tests
+
+Execute the following command to run your unit tests.
+
+```bash
+npm run test:e2e
+```
+
+> We have used [Cypress](https://www.cypress.io/) for E2E testing.
+
 ## Build
 
 Execute the following command to build your app in production mode.
