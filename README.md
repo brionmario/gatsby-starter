@@ -24,97 +24,214 @@
 </p>
 
 <p align="center">
-    Fully loaded Gatsby starter to get your website up and running in minutes.
+    A fully loaded starter kit for Gatsby development to get your website up and running in minutes.
     <br>
-    Code quality & Testing tools are already configured for your ease.
+    Code quality & Testing tools are also already configured for your ease.
 </p>
+
+## 🔗 Quick Links
+
+| [Demo](https://html-starter.netlify.com) |
+| ---------------------------------------- |
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+> The generated project have dependencies that require `node`, `npm` and `Gatsby CLI`.
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+**Make sure you have [Node](https://nodejs.org/en/download/) version >= 8.0, [npm](https://www.npmjs.com/) >= 5 & [GatsbyCLI](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)**
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+```bash
+# create a new Gatsby site using this template.
+gatsby new my-gatsby-starter https://github.com/brionmario/gatsby-starter
 
-1.  **Start developing.**
+# change the directory
+cd my-gatsby-starter/
 
-    Navigate into your new site’s directory and start it up.
+# start the development server. Site will run on http://localhost:8000
+npm start
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+```
 
-1.  **Open the source code and start editing!**
+# Table of Contents
 
-    Your site is now running at `http://localhost:8000`!
+- [File Structure](#file-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setting Up](#setting-up)
+  - [Running the app](#running-the-app)
+- [Configuration](#configuration)
+  - [Add third-party dependencies](#add-third-party-dependencies)
+    - [Bower](#bower)
+- [Styling](#styling)
+- [Deployment](#deployment)
+  - [Heroku](#deploy-to-heroku)
+  - [Netlify](#netlify)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [License](#license)
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+## File Structure
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+```
+gatsby-starter/
+ ├── coverage/                      * unit test coverage reports.
+ ├── docs/                          * contains documents and document resources.
+ ├── i18n/                          * contains i18n translations and config.
+ ├── node_modules/                  * contains dependencies pulled from npm.
+ ├── public/                        * generated public folder for distribution.
+ ├── src/                           * source folder
+ │   ├── assets/                    
+ │   │   ├── images/                * images and icons.
+ │   │   └── styles                 * SASS stylesheets.
+ │   ├── components                 * shared reusable components.
+ │   ├── layouts                    * app layouts.
+ │   ├── models                     * typescript schemas.
+ │   ├── pages                      * app pages.
+ │   └── types                      * custom typings.
+ ├── static                         * contains static assets that needs to be copied to public folder.
+ ├── .eslintignore                  * files and folders that need to be ignored from linter.
+ ├── .eslintrc.js                   * es-lint configuration file.
+ ├── .buildpacks                    * contains heroku buildpacks
+ ├── .dockerignore                  * contains files that are ignored from docker
+ ├── .editorconfig                  * helps define and maintain consistent coding styles between different editors and IDEs
+ ├── .eslintrc                      * ecmascript linting configuration file
+ ├── .gitignore                     * contains files that are ignored from git
+ ├── gatsby-browser.js              * where Gatsby expects to find any usage of the Gatsby browser APIs.
+ ├── gatsby-config.js               * main configuration file for a Gatsby site.
+ ├── gatsby-node.js                 * where Gatsby expects to find any usage of the Gatsby Node APIs
+ ├── gatsby-ssr.js                  * where Gatsby expects to find any usage of the Gatsby server-side rendering APIs.
+ ├── CONTRIBUTING.md                * project contributing guidelines
+ ├── LICENSE.md                     * licensing information
+ ├── package.json                   * contains all the npm scripts for building, running, deploying etc. and contains all the dependencies
+ ├── package.lock.json              * lock file for npm.
+ ├── postcss.config.js              * post-css configurations.
+ ├── README.md                      * Readme file for the repository
+ ├── tailwind.config.js             * tailwind CSS configuration file.
+ └── tsconfig.json                  * typescript configuration file.
 
-## 🚀 Quick start (Gatsby Cloud)
+```
+
+# Getting Started
+
+## Prerequisites
+
+What you need to run this app:
+
+### Node & npm
+
+> Make sure you have `Node.js` and `npm` installed by running the following simple commands on the command line and see if you're running the latest stable versions.
+
+- Node.js - Type `node -v` on the terminal.
+- npm - Type `npm -v` on the terminal.
+
+If you do not have them installed, click [here](https://nodejs.org/en/download/) and grab the latest stable version of `node` and `npm` will be automatically installed along with it. Or if you have `brew` already installed in your local machine, execute `brew install node` command to get `node`.
+
+### Gatsby CLI
+
+Follow the Gasby CLI [install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli) and get it installed on your environment.
+This will enable the usage of `gatsby` command.
+
+## Setting Up
+
+### Create a Gatsby site
+
+Use the Gatsby CLI to create a new site, specifying the default starter.
+
+```bash
+# create a new Gatsby site using this template.
+gatsby new my-gatsby-starter https://github.com/brionmario/gatsby-starter
+```
+### Navigate to source
+
+Navigate into your new site’s directory and start customizing.
+
+```bash
+# change the directory
+cd my-gatsby-starter/
+```
+
+## Running the app
+
+You can execute the below command to fire up the server.
+
+```bash
+npm start
+```
+
+Your site is now running at `http://localhost:8000`!
+
+_Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+
+# Styling
+
+The `index.scss` file inside the `src/assets/styles` directory is the main stylesheet for the project and will be compiled by Gatsby's build.
+If you want to add your own stylesheet, you can place it under the `src/assets/styles/partials` folder and import it in the `index.scss` file.
+
+For example if you want to include the styles for a slider:
+
+1. Create a `_slider.scss` partial file in the `src/assets/styles/partials` directory.
+2. In `index.scss` add `@import 'partials/slider.scss';`
+
+# Testing
+
+## Unit Tests
+
+Execute the following command to run your unit tests.
+
+```bash
+npm test
+```
+
+> We have used [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit testing.
+
+## End-To-End Tests
+
+Execute the following command to run your unit tests.
+
+```bash
+npm run test:e2e
+```
+
+> We have used [Cypress](https://www.cypress.io/) for E2E testing.
+
+# Linting
+
+Execute the following commands to generate linting for styles and scripts.
+
+```bash
+# all
+npm run lint
+
+# JavaScript & Typescript files.
+npm run lint:es
+
+# Style files.
+npm run lint:styles
+```
+
+## Build
+
+Execute the following command to build your app in production mode.
+
+```bash
+npm run build
+```
+
+## 💫 Deployment
+
+### Gatsby Cloud
 
 Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-default)
+[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/brionmario/gatsby-starter)
 
-## 🧐 What's inside?
+# Contributing
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for contributing guidelines and to learn about our code of conduct.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+# Contributors
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+# License
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
+This project is licensed under the BSD Zero Clause License(0BSD) License - see the [LICENSE.md](LICENSE.md) file for details.
