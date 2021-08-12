@@ -90,6 +90,14 @@ module.exports = {
                 locales: "./i18n/translations"
             },
             resolve: "gatsby-theme-i18n-react-i18next"
+        },
+        {
+            options: {
+                files: [
+                    "**/*.{css,scss}"
+                ]
+            },
+            resolve: "gatsby-plugin-stylelint"
         }
     ],
     siteMetadata: {
