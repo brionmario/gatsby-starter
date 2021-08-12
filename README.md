@@ -52,21 +52,17 @@ npm start
 
 ```
 
-# Table of Contents
+## Table of Contents
 
 - [File Structure](#file-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setting Up](#setting-up)
   - [Running the app](#running-the-app)
-- [Configuration](#configuration)
-  - [Add third-party dependencies](#add-third-party-dependencies)
-    - [Bower](#bower)
 - [Styling](#styling)
+- [Linting](#linting)
 - [Deployment](#deployment)
-  - [Heroku](#deploy-to-heroku)
-  - [Netlify](#netlify)
-- [Built With](#built-with)
+  - [Gatsby Cloud](#gatsby-cloud)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 - [License](#license)
@@ -109,13 +105,13 @@ gatsby-starter/
 
 ```
 
-# Getting Started
+## Getting Started
 
-## Prerequisites
+### Prerequisites
 
 What you need to run this app:
 
-### Node & npm
+#### Node & npm
 
 > Make sure you have `Node.js` and `npm` installed by running the following simple commands on the command line and see if you're running the latest stable versions.
 
@@ -124,14 +120,14 @@ What you need to run this app:
 
 If you do not have them installed, click [here](https://nodejs.org/en/download/) and grab the latest stable version of `node` and `npm` will be automatically installed along with it. Or if you have `brew` already installed in your local machine, execute `brew install node` command to get `node`.
 
-### Gatsby CLI
+#### Gatsby CLI
 
 Follow the Gasby CLI [install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli) and get it installed on your environment.
 This will enable the usage of `gatsby` command.
 
-## Setting Up
+### Setting Up
 
-### Create a Gatsby site
+#### Create a Gatsby site
 
 Use the Gatsby CLI to create a new site, specifying the default starter.
 
@@ -139,7 +135,7 @@ Use the Gatsby CLI to create a new site, specifying the default starter.
 # create a new Gatsby site using this template.
 gatsby new my-gatsby-starter https://github.com/brionmario/gatsby-starter
 ```
-### Navigate to source
+#### Navigate to source
 
 Navigate into your new site’s directory and start customizing.
 
@@ -148,7 +144,7 @@ Navigate into your new site’s directory and start customizing.
 cd my-gatsby-starter/
 ```
 
-## Running the app
+### Running the app
 
 You can execute the below command to fire up the server.
 
@@ -160,7 +156,7 @@ Your site is now running at `http://localhost:8000`!
 
 _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-# Styling
+## Styling
 
 The `index.scss` file inside the `src/assets/styles` directory is the main stylesheet for the project and will be compiled by Gatsby's build.
 If you want to add your own stylesheet, you can place it under the `src/assets/styles/partials` folder and import it in the `index.scss` file.
@@ -170,29 +166,7 @@ For example if you want to include the styles for a slider:
 1. Create a `_slider.scss` partial file in the `src/assets/styles/partials` directory.
 2. In `index.scss` add `@import 'partials/slider.scss';`
 
-# Testing
-
-## Unit Tests
-
-Execute the following command to run your unit tests.
-
-```bash
-npm test
-```
-
-> We have used [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit testing.
-
-## End-To-End Tests
-
-Execute the following command to run your unit tests.
-
-```bash
-npm run test:e2e
-```
-
-> We have used [Cypress](https://www.cypress.io/) for E2E testing.
-
-# Linting
+## Linting
 
 Execute the following commands to generate linting for styles and scripts.
 
@@ -207,6 +181,28 @@ npm run lint:es
 npm run lint:styles
 ```
 
+## Testing
+
+### Unit Tests
+
+Execute the following command to run your unit tests.
+
+```bash
+npm test
+```
+
+> We have used [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit testing.
+
+### End-To-End Tests
+
+Execute the following command to run your unit tests.
+
+```bash
+npm run test:e2e
+```
+
+> We have used [Cypress](https://www.cypress.io/) for E2E testing.
+
 ## Build
 
 Execute the following command to build your app in production mode.
@@ -215,7 +211,7 @@ Execute the following command to build your app in production mode.
 npm run build
 ```
 
-## 💫 Deployment
+## Deployment
 
 ### Gatsby Cloud
 
@@ -223,12 +219,12 @@ Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cl
 
 [<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/brionmario/gatsby-starter)
 
-# Contributing
+## Contributing
 
 Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for contributing guidelines and to learn about our code of conduct.
 
-# Contributors
+## Contributors
 
-# License
+## License
 
 This project is licensed under the BSD Zero Clause License(0BSD) License - see the [LICENSE.md](LICENSE.md) file for details.
