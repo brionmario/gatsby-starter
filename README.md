@@ -1,2 +1,2 @@
-# apareciumlabs.com
-The source-code for the Aparecium Labs official website.
+# gatsby-starter
+An opinionated Gatsby starter with Typescript, SASS, ESLint &amp; Tailwind CSS support.
