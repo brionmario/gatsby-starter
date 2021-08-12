@@ -11,9 +11,11 @@
     ·
     <a href="https://www.typescriptlang.org/">TypeScript</a>
     ·
+    <a href="https://sass-lang.com/">SASS</a>
+    ·
     <a href="https://eslint.org/">ESLint</a>
     ·
-    <a href="https://sass-lang.com/">SASS</a>
+    <a href="https://stylelint.io/">Style Lint</a>
     ·
     <a href="https://fontawesome.com/">Font Awesome</a>
     ·
