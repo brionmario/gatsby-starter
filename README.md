@@ -92,10 +92,6 @@ gatsby-starter/
  ├── static                         * contains static assets that needs to be copied to public folder.
  ├── .eslintignore                  * files and folders that need to be ignored from linter.
  ├── .eslintrc.js                   * es-lint configuration file.
- ├── .buildpacks                    * contains heroku buildpacks
- ├── .dockerignore                  * contains files that are ignored from docker
- ├── .editorconfig                  * helps define and maintain consistent coding styles between different editors and IDEs
- ├── .eslintrc                      * ecmascript linting configuration file
  ├── .gitignore                     * contains files that are ignored from git
  ├── gatsby-browser.js              * where Gatsby expects to find any usage of the Gatsby browser APIs.
  ├── gatsby-config.js               * main configuration file for a Gatsby site.
@@ -108,6 +104,7 @@ gatsby-starter/
  ├── postcss.config.js              * post-css configurations.
  ├── README.md                      * Readme file for the repository
  ├── tailwind.config.js             * tailwind CSS configuration file.
+ ├── stylelint.config.js            * style lint configuration file.
  └── tsconfig.json                  * typescript configuration file.
 
 ```
