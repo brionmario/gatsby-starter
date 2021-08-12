@@ -1,14 +1,35 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-    <img alt="Gatsby Starter" src="docs/banner@2x.png" width="600" />
+    <img alt="Gatsby Starter" src="docs/banner@2x.png"/>
+    <br>
+    <i>
+        Gatsby starter with batteries included.
+        <br>
+        You can use this starter for quickly get started with your website development.
+    </i>
+    <br>
 </p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+<p align="center">
+    <a href="http://gatsby-starter.apareciumlabs.com"><strong>gatsby-starter.apareciumlabs.com</strong></a>
+    <br>
+</p>
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+<p align="center">
+    <a href="https://tailwindcss.com/">Tailwind CSS</a>
+    ·
+    <a href="https://www.typescriptlang.org/">TypeScript</a>
+    ·
+    <a href="https://eslint.org/">ESLint</a>
+    ·
+    <a href="https://sass-lang.com/">SASS</a>
+    ·
+    <a href="https://fontawesome.com/">Font Awesome</a>
+    ·
+    <a href="https://mdxjs.com/">MDX</a>
+    ·
+    <a href="https://react.i18next.com/">React i18next</a>
+    <br>
+</p>
 
 ## 🚀 Quick start
 
