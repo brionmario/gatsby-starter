@@ -1,0 +1,14 @@
+{
+    "newsletter": {
+        "title": "Subscribe to our <1></1><2>Newsletter</2>",
+        "description": "We<1></1>open-source and always trying our best to contribute back to the community. Please Subscribe to our newsletter to stay up to date with more awesome projects like this.",
+        "subscribe": {
+            "emailInput": {
+                "placeholder": "Email address"
+            },
+            "submitButton": {
+                "label": "Subscribe"
+            }
+        }
+    }
+}
