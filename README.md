@@ -1,18 +1,10 @@
 <p align="center">
     <img alt="Gatsby Starter" src="docs/banner@2x.png"/>
-    <br>
-    <i>
-        Gatsby starter with batteries included.
-        <br>
-        You can use this starter for quickly get started with your website development.
-    </i>
-    <br>
 </p>
 
-<p align="center">
-    <a href="http://gatsby-starter.apareciumlabs.com"><strong>gatsby-starter.apareciumlabs.com</strong></a>
-    <br>
-</p>
+<h1 align="center">
+    Gatsby Starter
+</h1>
 
 <p align="center">
     <a href="https://tailwindcss.com/">Tailwind CSS</a>
@@ -29,6 +21,12 @@
     ·
     <a href="https://react.i18next.com/">React i18next</a>
     <br>
+</p>
+
+<p align="center">
+    Fully loaded Gatsby starter to get your website up and running in minutes.
+    <br>
+    Code quality & Testing tools are already configured for your ease.
 </p>
 
 ## 🚀 Quick start
@@ -120,5 +118,3 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
 
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
