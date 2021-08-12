@@ -1,0 +1,27 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "brionmario",
+      "name": "Brion Mario",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25959096?v=4",
+      "profile": "http://www.brionmario.com",
+      "contributions": [
+        "code",
+        "doc",
+        "infra",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "gatsby-starter",
+  "projectOwner": "brionmario",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
