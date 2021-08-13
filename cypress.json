@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://localhost:8000",
+    "integrationFolder": "cypress/e2e",
+    "testFiles": "**/*.spec.*",
+    "viewportHeight": 720,
+    "viewportWidth": 1080
+}
