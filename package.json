@@ -56,13 +56,15 @@
         "gatsby-plugin-sass": "^4.11.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.0.6",
+        "lint-staged": "^11.1.2",
         "postcss": "^8.3.6",
         "sass": "^1.37.5",
         "start-server-and-test": "^1.13.1",
         "stylelint": "^13.13.1",
         "stylelint-config-standard": "^22.0.0",
         "tailwindcss": "^2.2.7",
-        "typescript": "^4.3.5"
+        "typescript": "^4.3.5",
+        "husky": "^7.0.0"
     },
     "keywords": [
         "gatsby"
@@ -76,6 +78,7 @@
         "develop": "gatsby develop",
         "lint": "npm run lint:es && npm run lint:styles",
         "lint:es": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
+        "lint:staged": "lint-staged",
         "lint:styles": "stylelint 'src/**/*.{css,scss,sass}' --config stylelint.config.js --allow-empty-input",
         "serve": "gatsby serve",
         "start": "npm run develop",
@@ -83,7 +86,8 @@
         "test:unit": "jest --passWithNoTests",
         "test:unit:coverage": "npm run test:unit -- --coverage",
         "test:unit:watch": "npm run test:unit -- --watch",
-        "test:e2e": "start-server-and-test start http://localhost:8000 cy:interactive"
+        "test:e2e": "start-server-and-test start http://localhost:8000 cy:interactive",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
