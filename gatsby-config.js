@@ -94,7 +94,7 @@ module.exports = {
         {
             options: {
                 files: [
-                    "**/*.{css,scss}"
+                    "**/*.{css,sass,scss}"
                 ]
             },
             resolve: "@danbruegge/gatsby-plugin-stylelint"
