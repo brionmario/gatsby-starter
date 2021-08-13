@@ -78,6 +78,7 @@ npm start
 ```
 gatsby-starter/
  ├── coverage/                      * unit test coverage reports.
+ ├── cypress/                       * cypress tests folder.
  ├── docs/                          * contains documents and document resources.
  ├── i18n/                          * contains i18n translations and config.
  ├── node_modules/                  * contains dependencies pulled from npm.
@@ -100,7 +101,8 @@ gatsby-starter/
  ├── gatsby-node.js                 * where Gatsby expects to find any usage of the Gatsby Node APIs
  ├── gatsby-ssr.js                  * where Gatsby expects to find any usage of the Gatsby server-side rendering APIs.
  ├── CONTRIBUTING.md                * project contributing guidelines
- ├── LICENSE.md                     * licensing information
+ ├── cypress.json                   * cypress configuration file.
+ ├── LICENSE.md                     * licensing information.
  ├── package.json                   * contains all the npm scripts for building, running, deploying etc. and contains all the dependencies
  ├── package.lock.json              * lock file for npm.
  ├── postcss.config.js              * post-css configurations.
