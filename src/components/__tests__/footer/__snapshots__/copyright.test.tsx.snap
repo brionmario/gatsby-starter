@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test if the Copyright component is working as expected <Copyright /> matches snapshot 1`] = `
+<div>
+  <div
+    class="copyright flex flex-row items-center md:width-full text-sm text-gray-600"
+    data-testid="footer-copyright"
+  >
+    © Copyright 
+    2021
+    <img
+      alt="Apareciumlabs Logo Copyright"
+      class="mr-2 ml-2"
+      height="20px"
+      src="test-file-stub"
+      width="20px"
+    />
+    <p>
+      Aparecium Labs. All rights reserved.
+    </p>
+  </div>
+</div>
+`;
