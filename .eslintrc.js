@@ -17,7 +17,8 @@
 
 module.exports = {
     env: {
-        node: true // defines things like process.env when generating through node
+        jest: true,
+        node: true // defines things like process.env when generating through node,
     },
     extends: [
         "eslint:recommended",
