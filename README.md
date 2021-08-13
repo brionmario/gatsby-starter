@@ -21,6 +21,8 @@
     ·
     <a href="https://react.i18next.com/">React i18next</a>
     ·
+    <a href="https://testing-library.com/docs/react-testing-library/intro/">React Testing Library</a>
+    ·
     <a href="https://cypress.io/">Cypress</a>
     <br>
 </p>
@@ -191,12 +193,32 @@ npm run lint:styles
 
 ## Testing
 
+### All Tests
+
+Execute the following command to run both unit test suite and e2e test suite.
+
+```bash
+npm run test
+```
+
 ### Unit Tests
 
 Execute the following command to run your unit tests.
 
 ```bash
-npm test
+npm run test:unit
+```
+
+The following command will run the unit tests in watch mode.
+
+```bash
+npm run test:unit:watch
+```
+
+If you want to generate the code coverage for the project, use the following command.
+
+```bash
+npm run test:unit:coverage
 ```
 
 > We have used [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit testing.
