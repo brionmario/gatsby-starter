@@ -20,6 +20,8 @@
     <a href="https://fontawesome.com/">Font Awesome</a>
     ·
     <a href="https://react.i18next.com/">React i18next</a>
+    ·
+    <a href="https://cypress.io/">Cypress</a>
     <br>
 </p>
 

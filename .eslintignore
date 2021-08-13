@@ -3,4 +3,4 @@ node_modules
 public
 
 # Ignore all declaration files
-/src/**/*.d.ts
+/**/*.d.ts
