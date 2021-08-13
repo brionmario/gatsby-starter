@@ -18,8 +18,9 @@ Before you submit your Pull Request (PR) consider the following guidelines:
    that relates to your submission. You don't want to duplicate effort.
 2. Be sure that an issue describes the problem you're fixing, or documents the design for the feature you'd like to add.
    Discussing the design up front helps to ensure that we're ready to accept your work.
-3. Fork the brionmario/html-starter repository.
-4. Make your changes in a new git branch:
+3. Fork the brionmario/gatsby-starter repository.
+4. Make your changes in a new git branch.
+5. Add the license to files which permits (JSON, md etc can be skipped.)
 
 ```bash
 git checkout -b fix-your-fix master
