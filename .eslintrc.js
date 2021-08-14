@@ -29,7 +29,8 @@ module.exports = {
         "plugin:jsx-a11y/recommended",
         "plugin:react-hooks/recommended",
         "plugin:jest/recommended",
-        "plugin:testing-library/react"
+        "plugin:testing-library/react",
+        "plugin:cypress/recommended"
     ],
     overrides: [
         {
@@ -93,6 +94,7 @@ module.exports = {
             "error",
             4
         ],
+        "jest/expect-expect": "off",
         "jsx-quotes": [
             "warn",
             "prefer-double"
