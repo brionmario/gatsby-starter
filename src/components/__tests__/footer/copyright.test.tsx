@@ -15,20 +15,19 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { Copyright } from "../../footer";
 
 describe("Test if the Copyright component is working as expected", () => {
     it("<Copyright /> matches snapshot", () => {
-        const component = render(<Copyright data-testid="footer-copyright" />);
-        expect(component.container).toMatchSnapshot();
+        const { container } = render(<Copyright data-testid="footer-copyright" />);
+        expect(container).toMatchSnapshot();
     });
 
     it("<Copyright /> renders without exploding", () => {
-        const component = render(<Copyright data-testid="footer-copyright" />);
-        expect(component.getByTestId("footer-copyright"))
-            .toBeInTheDocument();
+        render(<Copyright data-testid="footer-copyright" />);
+        expect(screen.getByTestId("footer-copyright")).toBeInTheDocument();
     });
 });
