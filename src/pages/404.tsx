@@ -21,7 +21,7 @@ import { Link, PageProps } from "gatsby";
 import React, { FunctionComponent, ReactElement } from "react";
 import PageNotFoundIllustration from "../assets/images/404.svg";
 import { SEO } from "../components";
-import { BaseLayout } from "../layouts";
+import { ErrorLayout } from "../layouts";
 import { TestableComponentInterface } from "../models";
 
 /**
@@ -48,7 +48,7 @@ const NotFoundPage: FunctionComponent<PageProps<INotFoundPageProps>> = (
     } = data;
 
     return (
-        <BaseLayout data-testid={ testId } className="flex flex-col justify-center min-h-screen bg-gray-900">
+        <ErrorLayout data-testid={ testId } className="flex flex-col justify-center min-h-screen bg-gray-900">
             <SEO title="404: Not found"/>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                 <div className="max-w-lg sm:text-center sm:mx-auto">
@@ -118,7 +118,7 @@ const NotFoundPage: FunctionComponent<PageProps<INotFoundPageProps>> = (
                     </Link>
                 </div>
             </div>
-        </BaseLayout>
+        </ErrorLayout>
     );
 };
 
@@ -128,7 +128,7 @@ const NotFoundPage: FunctionComponent<PageProps<INotFoundPageProps>> = (
  */
 NotFoundPage.defaultProps = {
     data: {
-        "data-testid": "test"
+        "data-testid": "404-page"
     }
 };
 
