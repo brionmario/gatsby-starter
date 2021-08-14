@@ -26,7 +26,7 @@ interface IBaseLayoutProps extends TestableComponentInterface, StylableComponent
 }
 
 /**
- * Parent Layout to wrap all other layouts.
+ * Parent Layout to wrap other layouts.
  *
  * @remarks This can be used to provide base CSS classes, re-usable components that are required for
  * all other layouts.
