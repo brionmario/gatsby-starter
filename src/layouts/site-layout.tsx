@@ -19,7 +19,7 @@ import cx from "classnames";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react";
 import { BaseLayout } from "./base-layout";
-import { Header } from "../components";
+import { Container, Header } from "../components";
 import { Footer } from "../components/footer";
 import { StylableComponentInterface, TestableComponentInterface } from "../models";
 
@@ -67,7 +67,9 @@ export const SiteLayout: FunctionComponent<ISiteLayoutProps> = (
                     data-testid="header"
                 />
                 <div className="flex-grow">
-                    { children }
+                    <Container data-testid="container">
+                        { children }
+                    </Container>
                 </div>
                 <Footer data-testid="footer" />
             </div>

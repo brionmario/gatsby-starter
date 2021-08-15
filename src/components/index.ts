@@ -16,6 +16,7 @@
  */
 
 export * from "./footer";
+export * from "./container";
 export * from "./header";
 export * from "./language-switcher";
 export * from "./seo";
