@@ -22,7 +22,6 @@
         "gatsby-source-filesystem": "^3.10.0",
         "gatsby-theme-i18n": "^2.0.0",
         "gatsby-theme-i18n-react-i18next": "^2.0.0",
-        "gatsby-transformer-remark": "^4.8.0",
         "gatsby-transformer-sharp": "^3.10.0",
         "i18next": "^20.4.0",
         "react": "^17.0.1",
