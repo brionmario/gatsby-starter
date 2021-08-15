@@ -20,7 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, PageProps } from "gatsby";
 import React, { FunctionComponent, ReactElement } from "react";
 import PageNotFoundIllustration from "../assets/images/404.svg";
-import { SEO } from "../components";
+import { Heading, SEO } from "../components";
 import { ErrorLayout } from "../layouts";
 import { TestableComponentInterface } from "../models";
 
@@ -56,54 +56,10 @@ const NotFoundPage: FunctionComponent<PageProps<INotFoundPageProps>> = (
                         src={ PageNotFoundIllustration }
                         alt="404 Illustration"
                     />
-                    <div>
-                        <p
-                            className={
-                                "inline-block px-3 py-px mb-4 text-xs font-semibold" +
-                                "tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400"
-                            }
-                        >
-                            404 ERROR
-                        </p>
-                    </div>
-                    <hr className="my-8 border-gray-300"/>
-                    <h2
-                        className={
-                            "mb-6 mt-3 font-sans text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl " +
-                            "sm:leading-none"
-                        }
-                    >
-                        <span className="relative inline-block">
-                            <svg
-                                viewBox="0 0 52 24"
-                                fill="currentColor"
-                                className={
-                                    "absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 " +
-                                    "lg:-ml-32 lg:-mt-10 sm:block"
-                                }
-                            >
-                                <defs>
-                                    <pattern
-                                        id="6b0188f3-b7a1-4e9b-b95e-cad916bb3042"
-                                        x="0"
-                                        y="0"
-                                        width=".135"
-                                        height=".30"
-                                    >
-                                        <circle cx="1" cy="1" r=".7"/>
-                                    </pattern>
-                                </defs>
-                                <rect
-                                    fill="url(#6b0188f3-b7a1-4e9b-b95e-cad916bb3042)"
-                                    width="52"
-                                    height="24"
-                                />
-                            </svg>
-                            <span className="relative">Oops, </span>
-                        </span>{ " " }
-                        this is embarrassing...
-                    </h2>
-                    <p className="text-base text-gray-700 md:text-lg">
+                    <Heading.H1 data-testid="404-heading">
+                        Oops, this is embarrassing...
+                    </Heading.H1>
+                    <p className="text-base text-gray-400 md:text-lg">
                         We could not locate the page you are looking for.
                     </p>
                     <Link
