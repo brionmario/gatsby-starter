@@ -17,8 +17,7 @@
 
 import { PageProps } from "gatsby";
 import React, { FunctionComponent, ReactElement } from "react";
-import { Hero, SEO } from "../components";
-import { SiteLayout } from "../layouts";
+import { Hero, SEO, SiteLayout } from "../components";
 import { TestableComponentInterface } from "../models";
 
 /**

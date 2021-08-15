@@ -20,8 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, PageProps } from "gatsby";
 import React, { FunctionComponent, ReactElement } from "react";
 import PageNotFoundIllustration from "../assets/images/404.svg";
-import { Heading, SEO } from "../components";
-import { ErrorLayout } from "../layouts";
+import { ErrorLayout, Heading, SEO } from "../components";
 import { TestableComponentInterface } from "../models";
 
 /**
