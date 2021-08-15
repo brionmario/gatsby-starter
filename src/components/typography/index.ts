@@ -15,10 +15,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-export * from "./footer";
-export * from "./typography";
-export * from "./container";
-export * from "./header";
-export * from "./language-switcher";
-export * from "./seo";
-export * from "./hero";
+export * from "./blockquote";
+export * from "./heading";
+export * from "./paragraph";
