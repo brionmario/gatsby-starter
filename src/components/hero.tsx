@@ -67,12 +67,12 @@ export const Hero: FunctionComponent<IHeroProps> = (
                     alt=""
                 />
             </div>
-            <div className="relative flex justify-end max-w-xl mx-auto xl:pr-32 lg:max-w-screen-xl">
+            <div className="relative flex justify-end max-w-xl mx-auto xl:pr-25 lg:max-w-screen-xl">
                 <div className="mb-16 lg:pr-5 lg:max-w-lg lg:mb-0">
                     <div className="max-w-xl mb-6">
                         <h2
                             className={
-                                "max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-700 " +
+                                "max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-200 " +
                                 "sm:text-4xl sm:leading-none"
                             }
                         >
@@ -86,7 +86,7 @@ export const Hero: FunctionComponent<IHeroProps> = (
                                 </span>
                             </Trans>
                         </h2>
-                        <p className="text-base text-gray-700 md:text-lg">
+                        <p className="text-base text-gray-400 md:text-lg">
                             <Trans
                                 i18nKey="home:newsletter.description"
                             >

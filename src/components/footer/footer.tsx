@@ -47,7 +47,7 @@ export const Footer: FunctionComponent<IFooterProps> = (
 
     const classes = cx(
         "footer",
-        "px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+        "px-4 sm:px-6 md:px-4 lg:px-8 pt-16 lg:mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl"
     );
 
     return (
