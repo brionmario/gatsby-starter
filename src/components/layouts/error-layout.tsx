@@ -18,7 +18,7 @@
 import cx from "classnames";
 import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react";
 import { BaseLayout } from "./base-layout";
-import { StylableComponentInterface, TestableComponentInterface } from "../models";
+import { StylableComponentInterface, TestableComponentInterface } from "../../models";
 
 /**
  * Interface for the Error layout component props.

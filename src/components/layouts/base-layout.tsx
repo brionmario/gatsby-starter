@@ -17,7 +17,7 @@
 
 import cx from "classnames";
 import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react";
-import { StylableComponentInterface, TestableComponentInterface } from "../models";
+import { StylableComponentInterface, TestableComponentInterface } from "../../models";
 
 /**
  * Interface for the Base layout component props.

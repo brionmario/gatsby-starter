@@ -19,9 +19,8 @@ import cx from "classnames";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FunctionComponent, PropsWithChildren, ReactElement } from "react";
 import { BaseLayout } from "./base-layout";
-import { Container, Header } from "../components";
-import { Footer } from "../components/footer";
-import { StylableComponentInterface, TestableComponentInterface } from "../models";
+import { Container, Footer, Header } from "../../components";
+import { StylableComponentInterface, TestableComponentInterface } from "../../models";
 
 /**
  * Interface for the Site layout component props.
