@@ -38,7 +38,9 @@ module.exports = {
                 ],
                 extensions: [
                     "js",
-                    "jsx"
+                    "jsx",
+                    "ts",
+                    "tsx"
                 ],
                 stages: [
                     "develop"
@@ -87,7 +89,7 @@ module.exports = {
         {
             options: {
                 files: [
-                    "**/*.{css,sass,scss}"
+                    `${__dirname}/src/**/*.{css,sass,scss}`
                 ]
             },
             resolve: "@danbruegge/gatsby-plugin-stylelint"
