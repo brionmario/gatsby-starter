@@ -205,6 +205,13 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                 </LocalizedLink>
                                 <LocalizedLink
                                     language={ locale }
+                                    to="/blog"
+                                    className="text-base font-medium text-gray-500 hover:text-gray-100"
+                                >
+                                    Blog
+                                </LocalizedLink>
+                                <LocalizedLink
+                                    language={ locale }
                                     to="/404"
                                     className="text-base font-medium text-gray-500 hover:text-gray-100"
                                 >
