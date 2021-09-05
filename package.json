@@ -1,7 +1,7 @@
 {
-    "name": "@apareciumlabs/official-website",
+    "name": "@brionmario/gatsby-starter",
     "private": true,
-    "description": "The source-code for the Aparecium Labs official website.",
+    "description": "A fully loaded starter kit for Gatsby development to get your website up and running in minutes.",
     "version": "0.1.0",
     "author": "Brion Mario",
     "dependencies": {
@@ -70,7 +70,19 @@
         "typescript": "^4.3.5"
     },
     "keywords": [
-        "gatsby"
+        "gatsby",
+        "stylelint",
+        "sass",
+        "typescript",
+        "eslint",
+        "fontawesome",
+        "gatsby",
+        "mdx",
+        "cypress",
+        "react-i18next",
+        "gatsby-starter",
+        "tailwindcss",
+        "react-testing-library"
     ],
     "license": "MIT",
     "scripts": {
