@@ -16,6 +16,9 @@
  */
 
 export * from "./footer";
+export * from "./layouts";
+export * from "./typography";
+export * from "./container";
 export * from "./header";
 export * from "./language-switcher";
 export * from "./seo";

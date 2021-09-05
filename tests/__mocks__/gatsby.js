@@ -15,7 +15,8 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable no-unused-vars */
+
 const React = require("react");
 const gatsby = jest.requireActual("gatsby");
 

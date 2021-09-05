@@ -17,8 +17,7 @@
 
 import { PageProps } from "gatsby";
 import React, { FunctionComponent, ReactElement } from "react";
-import { Hero, SEO } from "../components";
-import { BaseLayout, SiteLayout } from "../layouts";
+import { Hero, SEO, SiteLayout } from "../components";
 import { TestableComponentInterface } from "../models";
 
 /**
@@ -45,12 +44,10 @@ const IndexPage: FunctionComponent<PageProps<IIndexPageProps>> = (
     } = data;
 
     return (
-        <BaseLayout data-testid={ `${ testId }-base-layout` }>
-            <SiteLayout data-testid={ `${ testId }-site-layout` }>
-                <SEO title="Home" />
-                <Hero data-testid={ `${ testId }-hero` } />
-            </SiteLayout>
-        </BaseLayout>
+        <SiteLayout data-testid={ `${ testId }-site-layout` }>
+            <SEO title="Home" />
+            <Hero data-testid={ `${ testId }-hero` } />
+        </SiteLayout>
     );
 };
 

@@ -23,6 +23,8 @@ module.exports = {
         "at-rule-no-unknown": [ true, {
             "ignoreAtRules": [
                 "extends",
+                "layer",
+                "apply",
                 "tailwind"
             ]
         }],

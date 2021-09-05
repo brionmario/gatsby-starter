@@ -49,7 +49,6 @@ interface IHeaderProps extends TestableComponentInterface {
 }
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-
 /**
  * Header Component.
  *
@@ -204,6 +203,13 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                 >
                                     { t("dictionary:homePage") }
                                 </LocalizedLink>
+                                <LocalizedLink
+                                    language={ locale }
+                                    to="/404"
+                                    className="text-base font-medium text-gray-500 hover:text-gray-100"
+                                >
+                                    404
+                                </LocalizedLink>
                                 <Popover className="relative">
                                     { ({ open }) => (
                                         <>
@@ -324,20 +330,6 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                         </>
                                     ) }
                                 </Popover>
-                                <LocalizedLink
-                                    language={ locale }
-                                    to="/pricing"
-                                    className="text-base font-medium text-gray-500 hover:text-gray-100"
-                                >
-                                    { t("dictionary:pricing") }
-                                </LocalizedLink>
-                                <a
-                                    href="#"
-                                    className="text-base font-medium text-gray-500 hover:text-gray-100"
-                                >
-                                    { t("dictionary:docs") }
-                                </a>
-
                                 <Popover className="relative">
                                     { ({ open }) => (
                                         <>
@@ -486,16 +478,6 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                 >
                                     <LanguageSwitcher data-testid="language-switcher" />
                                 </a>
-                                <a
-                                    href="#"
-                                    className={
-                                        "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 " +
-                                        "py-2 border border-transparent rounded-md shadow-sm text-base font-medium " +
-                                        "text-white bg-deep-orange-accent-400 hover:bg-deep-orange-accent-700"
-                                    }
-                                >
-                                    { t("dictionary:signUp") }
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -576,28 +558,21 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                     </div>
                                 </div>
                                 <div className="py-6 px-5 space-y-6">
-                                    <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+                                    <div className="grid grid-cols-1 gap-y-4">
                                         <LocalizedLink
                                             language={ locale }
                                             to="/"
-                                            className="text-base font-medium text-gray-500 hover:text-gray-100"
+                                            className="text-base font-medium text-gray-900 hover:text-gray-100"
                                         >
-                                            Home
+                                            { t("dictionary:home") }
                                         </LocalizedLink>
                                         <LocalizedLink
                                             language={ locale }
-                                            to="/pricing"
+                                            to="/404"
                                             className="text-base font-medium text-gray-900 hover:text-gray-700"
                                         >
-                                            Pricing
+                                            404
                                         </LocalizedLink>
-
-                                        <a
-                                            href="#"
-                                            className="text-base font-medium text-gray-900 hover:text-gray-700"
-                                        >
-                                            Docs
-                                        </a>
                                         { resources.map((item) => (
                                             <a
                                                 key={ item.name }
@@ -607,18 +582,6 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                                 { item.name }
                                             </a>
                                         )) }
-                                    </div>
-                                    <div>
-                                        <a
-                                            href="#"
-                                            className={
-                                                "w-full flex items-center justify-center px-4 py-2 border " +
-                                                "border-transparent rounded-md shadow-sm text-base font-medium " +
-                                                "text-white bg-deep-orange-accent-400 hover:bg-deep-orange-accent-700"
-                                            }
-                                        >
-                                            { t("dictionary:signUp") }
-                                        </a>
                                     </div>
                                 </div>
                             </div>
