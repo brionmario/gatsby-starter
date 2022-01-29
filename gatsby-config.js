@@ -56,7 +56,20 @@ module.exports = {
             resolve: "gatsby-source-filesystem"
         },
         "gatsby-transformer-sharp",
-        "gatsby-plugin-sharp",
+        {
+            options: {
+                defaults: {
+                    formats: [
+                        "auto",
+                        "avif",
+                        "webp"
+                    ],
+                    placeholder: "blurred",
+                    quality: 70
+                }
+            },
+            resolve: "gatsby-plugin-sharp"
+        },
         {
             options: {
                 background_color: "#F89C68",
@@ -93,6 +106,40 @@ module.exports = {
                 ]
             },
             resolve: "@danbruegge/gatsby-plugin-stylelint"
+        },
+        {
+            gatsbyRemarkPlugins: [
+                {
+                    options: {
+                        maxWidth: 1080
+                    },
+                    resolve: "gatsby-remark-images"
+                },
+                {
+                    resolve: "gatsby-remark-copy-linked-files"
+                }
+            ],
+            options: {
+                extensions: [
+                    ".mdx",
+                    ".md",
+                    ".markdown"
+                ]
+            },
+            resolve: "gatsby-plugin-mdx"
+        },
+        {
+            options: {
+                name: "posts",
+                path: `${__dirname}/src/blog`
+            },
+            resolve: "gatsby-source-filesystem"
+        },
+        {
+            options: {
+                path: `${__dirname}/src/blog`
+            },
+            resolve: "gatsby-plugin-page-creator"
         }
     ],
     siteMetadata: {
