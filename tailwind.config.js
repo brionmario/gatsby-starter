@@ -16,13 +16,12 @@
  */
 
 module.exports = {
-    darkMode: false, // or 'media' or 'class'
-    plugins: [],
-    purge: [
+    content: [
         // Paths to all of your pages and components so Tailwind can
         // tree-shake unused styles in production builds:
         "./src/**/*.{js,jsx,ts,tsx}"
     ],
+    plugins: [],
     theme: {
         extend: {
             colors: {

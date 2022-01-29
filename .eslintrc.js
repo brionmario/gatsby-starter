@@ -55,12 +55,13 @@ module.exports = {
             }
         }
     ],
-    parser: "babel-eslint", // Uses babel-eslint transforms.
+    parser: "@babel/eslint-parser", // Uses babel-eslint transforms.
     parserOptions: {
         ecmaFeatures: {
             jsx: true
         },
         ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+        requireConfigFile : false, // To silent @babel/eslint-parser from needing a `babelrc` file.
         sourceType: "module" // Allows for the use of imports
     },
     plugins: [
