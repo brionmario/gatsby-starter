@@ -17,17 +17,17 @@
 
 module.exports = {
     extends: [
-        "stylelint-config-standard"
+        "stylelint-config-standard-scss"
     ],
     rules: {
-        "at-rule-no-unknown": [ true, {
+        "indentation": 4,
+        "scss/at-rule-no-unknown": [ true, {
             "ignoreAtRules": [
                 "extends",
                 "layer",
                 "apply",
                 "tailwind"
             ]
-        }],
-        "indentation": 4
+        }]
     }
 };

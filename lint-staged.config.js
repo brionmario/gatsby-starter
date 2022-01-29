@@ -17,6 +17,9 @@
 
 module.exports = {
     "*.+(js|jsx|ts|tsx)": [
-        "npm run lint"
+        "npm run lint:es"
+    ],
+    "*.+(css,scss,sass)": [
+        "npm run lint:styles"
     ]
 };
