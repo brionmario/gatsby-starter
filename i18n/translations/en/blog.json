@@ -1,0 +1,9 @@
+{
+    "heading": {
+        "title": "Blog",
+        "description": "These are some of the blogs we have written over the years. Please have a look and contact us if you have any issues."
+    },
+    "blogItem": {
+        "action": "Read more"
+    }
+}

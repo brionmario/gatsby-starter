@@ -15,8 +15,10 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-import { Link, PageProps, graphql, useStaticQuery } from "gatsby";
+import { PageProps, graphql, useStaticQuery } from "gatsby";
+import { LocalizedLink, useLocalization } from "gatsby-theme-i18n";
 import React, { FunctionComponent, ReactElement } from "react";
+import { useTranslation } from "react-i18next";
 import { Heading, SEO, SiteLayout } from "../components";
 import { TestableComponentInterface } from "../models";
 
@@ -43,9 +45,11 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
         "data-testid": testId
     } = data;
 
+    const { locale } = useLocalization();
+
     const query = useStaticQuery(
         graphql`
-            query BLOG_POSTS_INDEX {
+            query MyQuery {
                 allMdx(sort: {fields: frontmatter___date, order: ASC}) {
                     edges {
                         node {
@@ -53,8 +57,15 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                             frontmatter {
                                 date(formatString: "YYYY MM Do")
                                 author
+                                description
+                                category
+                                keywords
                                 title
                                 slug
+                                featuredImage {
+                                    id
+                                    publicURL
+                                }
                             }
                         }
                     }
@@ -63,6 +74,8 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
         `
     );
 
+    const { t } = useTranslation();
+
     return (
         <SiteLayout data-testid={ `${ testId }-site-layout` }>
             <SEO title="Pricing" />
@@ -70,11 +83,10 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="lg:text-center">
                         <Heading.H1 data-testid="heading">
-                            Blog
+                            { t("blog:heading.title") }
                         </Heading.H1>
                         <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                            These are some of the blogs we have written over the years. Please have a look and
-                            contact us if you have any issues.
+                            { t("blog:heading.description") }
                         </p>
                     </div>
 
@@ -95,13 +107,32 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                                 "rounded shadow-sm"
                                             }
                                         >
+                                            <img
+                                                src={ post.node.frontmatter.featuredImage.publicURL }
+                                                className="object-cover w-full h-64"
+                                                alt=""
+                                            />
                                             <div className="p-5 border border-t-0">
                                                 <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
+                                                    <a
+                                                        href="/"
+                                                        className={
+                                                            "transition-colors duration-200 text-blue-gray-900 " +
+                                                            "hover:text-deep-purple-accent-700"
+                                                        }
+                                                        aria-label="Category"
+                                                        title="traveling"
+                                                    >
+                                                        { post.node.frontmatter.category }
+                                                    </a>
                                                     <span className="text-gray-600">
                                                         — { post.node.frontmatter.date }
                                                     </span>
                                                 </p>
-                                                <div
+                                                <a
+                                                    href="/"
+                                                    aria-label="Category"
+                                                    title="Visit the East"
                                                     className={
                                                         "inline-block mb-3 text-2xl font-bold leading-5 " +
                                                         "transition-colors duration-200 " +
@@ -109,11 +140,12 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                                     }
                                                 >
                                                     { post.node.frontmatter.title }
-                                                </div>
+                                                </a>
                                                 <p className="mb-2 text-gray-700">
                                                     { post.node.excerpt }
                                                 </p>
-                                                <Link
+                                                <LocalizedLink
+                                                    language={ locale }
                                                     to={ post.node.frontmatter.slug }
                                                     className={
                                                         "inline-flex items-center font-semibold transition-colors " +
@@ -121,8 +153,8 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                                         "hover:text-deep-purple-800"
                                                     }
                                                 >
-                                                    Read more
-                                                </Link>
+                                                    { t("blog:blogItem.action") }
+                                                </LocalizedLink>
                                             </div>
                                         </div>
                                     ))

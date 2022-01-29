@@ -15,8 +15,34 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-@import "tailwind";
+.code-block {
+    .pre {
+        border-radius: 4px;
+        font-size: 16px;
+        text-align: left;
+        margin: 1em 0;
+        padding: 10px;
+        overflow: scroll;
 
-// Partials
-@import "partials/code-block";
-@import "partials/typography";
+        &.token-line {
+            line-height: 1.3em;
+            height: 1.3em;
+        }
+    }
+
+    .line {
+        display: table-row;
+
+        .line-no {
+            display: table-cell;
+            text-align: right;
+            padding-right: 1em;
+            user-select: none;
+            opacity: 0.5;
+        }
+
+        .line-content {
+            display: table-cell;
+        }
+    }
+}

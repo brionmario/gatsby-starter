@@ -20,7 +20,7 @@ import cx from "classnames";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React, { FunctionComponent, ReactElement } from "react";
-import { Blockquote, Heading, Paragraph, SiteLayout } from "../components";
+import { Blockquote, CodeBlock, Heading, Paragraph, SiteLayout } from "../components";
 import { StylableComponentInterface, TestableComponentInterface } from "../models";
 
 // FIle level ESLint Overrides.
@@ -49,6 +49,9 @@ const components: MDXProviderComponentsProp = {
         );
     },
     p: Paragraph,
+    pre: (props) => {
+        return <CodeBlock data-testid="code-block" code={ props.children.props.children } />;
+    },
     ul: (props) => {
         return (
             <ul className="list-disc pl-8 mb-5 text-lg">
@@ -96,23 +99,26 @@ const BlogPostTemplate: FunctionComponent<IBlogPostTemplateProps> = (
                         </div>
                     </div>
                     <div className="mb-10 sm:text-center">
-                        {
-                            data.mdx.frontmatter.author && (
-                                <div>
-                                    <a
-                                        href="/"
-                                        aria-label="Author"
-                                        className={
-                                            "font-semibold text-gray-300 transition-colors duration-200 " +
-                                            "hover:text-deep-purple-accent-700"
-                                        }
-                                    >
-                                        { data.mdx.frontmatter.author }
-                                    </a>
-                                    <p className="text-sm font-medium leading-4 text-gray-600">Author</p>
-                                </div>
-                            )
-                        }
+                        <a href="/" aria-label="Author" className="inline-block mb-1">
+                            <img
+                                alt="avatar"
+                                src={ data.mdx.frontmatter.authorAvatar }
+                                className="object-cover w-10 h-10 rounded-full shadow-sm"
+                            />
+                        </a>
+                        <div>
+                            <a
+                                href="/"
+                                aria-label="Author"
+                                className={
+                                    "font-semibold text-gray-300 transition-colors duration-200 " +
+                                    "hover:text-deep-purple-accent-700"
+                                }
+                            >
+                                { data.mdx.frontmatter.author }
+                            </a>
+                            <p className="text-sm font-medium leading-4 text-gray-600">Author</p>
+                        </div>
                     </div>
                 </div>
                 <div className="text-gray-100">
@@ -148,6 +154,22 @@ export const query = graphql`
                 date(formatString: "YYYY MM Do")
                 title
                 author
+                authorAvatar
+                description
+                embeddedImagesRemote {
+                    childImageSharp {
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                        )
+                    }
+                }
+                embeddedImagesLocal {
+                    childImageSharp {
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                        )
+                    }
+                }
             }
         }
     }

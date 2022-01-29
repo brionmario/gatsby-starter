@@ -208,7 +208,7 @@ export const Header: FunctionComponent<IHeaderProps> = (
                                     to="/blog"
                                     className="text-base font-medium text-gray-500 hover:text-gray-100"
                                 >
-                                    Blog
+                                    { t("dictionary:blog") }
                                 </LocalizedLink>
                                 <LocalizedLink
                                     language={ locale }

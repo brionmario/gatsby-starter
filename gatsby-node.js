@@ -21,7 +21,9 @@
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
+const fs = require("fs");
 const path = require("path");
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
 
@@ -63,4 +65,72 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             path: node.frontmatter.slug
         });
     });
+};
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+
+    const { createTypes, printTypeDefinitions } = actions;
+
+    createTypes(`
+        type Mdx implements Node {
+            frontmatter: Frontmatter
+        }
+        type Frontmatter @dontInfer {
+            title: String!
+            slug: String
+            date: Date @dateformat
+            author: String
+            authorAvatar: String
+            description: String
+            excerpt: String
+            category: String
+            keywords: [String]
+            featuredImage: File @fileByRelativePath
+            embeddedImagesRemote: [File] @link(by: "url")
+            embeddedImagesLocal: [File] @fileByRelativePath
+        }
+    `);
+
+    const GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH = "debug-graphql-typings.txt";
+
+    try {
+        if (fs.existsSync(path.resolve(GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH))) {
+            fs.unlinkSync(GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH);
+        }
+
+        printTypeDefinitions({ path: "./debug-graphql-typings.txt" });
+    } catch(err) {
+        console.error("Error occured while trying to write the GraphQL Type definitions file.", err);
+    }
+};
+
+exports.onCreateNode = ({
+    node,
+    createNodeId,
+    actions: { createNode },
+    cache,
+    store
+}) => {
+    if (
+        node.internal.type === "Mdx" &&
+        node.frontmatter &&
+        node.frontmatter.embeddedImagesRemote
+    ) {
+        return Promise.all(
+            node.frontmatter.embeddedImagesRemote.map((url) => {
+                try {
+                    return createRemoteFileNode({
+                        cache,
+                        createNode,
+                        createNodeId,
+                        parentNodeId: node.id,
+                        store,
+                        url
+                    });
+                } catch (error) {
+                    console.error(error);
+                }
+            })
+        );
+    }
 };

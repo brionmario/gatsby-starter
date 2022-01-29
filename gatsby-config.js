@@ -93,7 +93,7 @@ module.exports = {
         {
             options: {
                 i18nextOptions: {
-                    ns: [ "dictionary", "common", "home" ]
+                    ns: [ "dictionary", "common", "home", "blog" ]
                 },
                 locales: "./i18n/translations"
             },

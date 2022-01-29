@@ -15,5 +15,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-export * from "./base-layout";
-export * from "./site-layout";
+/// <reference types="@mdx-js/react" />

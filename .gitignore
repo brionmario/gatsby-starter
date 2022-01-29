@@ -71,3 +71,6 @@ yarn-error.log
 # IDE/Editor Configurations - WHY? Better to configure settings on user level IMO.
 .idea
 .vscode/**/*
+
+# Debug files
+/debug-graphql-typings.txt
