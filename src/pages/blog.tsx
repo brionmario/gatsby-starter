@@ -49,7 +49,7 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
 
     const query = useStaticQuery(
         graphql`
-            query MyQuery {
+            query BLOG_INDEX {
                 allMdx(sort: {fields: frontmatter___date, order: ASC}) {
                     edges {
                         node {
@@ -114,25 +114,19 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                             />
                                             <div className="p-5 border border-t-0">
                                                 <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                                                    <a
-                                                        href="/"
+                                                    <div
                                                         className={
                                                             "transition-colors duration-200 text-blue-gray-900 " +
                                                             "hover:text-deep-purple-accent-700"
                                                         }
-                                                        aria-label="Category"
-                                                        title="traveling"
                                                     >
                                                         { post.node.frontmatter.category }
-                                                    </a>
+                                                    </div>
                                                     <span className="text-gray-600">
                                                         — { post.node.frontmatter.date }
                                                     </span>
                                                 </p>
-                                                <a
-                                                    href="/"
-                                                    aria-label="Category"
-                                                    title="Visit the East"
+                                                <div
                                                     className={
                                                         "inline-block mb-3 text-2xl font-bold leading-5 " +
                                                         "transition-colors duration-200 " +
@@ -140,7 +134,7 @@ const BlogPage: FunctionComponent<PageProps<IPricingPageProps>> = (
                                                     }
                                                 >
                                                     { post.node.frontmatter.title }
-                                                </a>
+                                                </div>
                                                 <p className="mb-2 text-gray-700">
                                                     { post.node.excerpt }
                                                 </p>

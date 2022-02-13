@@ -23,8 +23,6 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 <GatsbyImage alt="Banner Image" className="mb-4" image={getImage(props.remoteImages[0])} />
 
-![Image](./resources/how-to-avoid-bad-code-from-slipping-into-your-repositories-0.png)
-
 Adding static code analysis tools like [ESLint](https://eslint.org/) is considered a best practice in front-end Ecmascript based project development. These tools make sure that the code we write adheres to a certain standard defined by the team.
 
 But when there are several developers working on one code base, the code quality could get out of hand. Oftentimes, code that violates the linting rules gets pushed to the repositories. This is not ideal for large projects and could render the usage of linting tools redundant.
@@ -47,12 +45,12 @@ You will need a Javascript or Typescript application with a static code analyzin
 
 Please note that I’m using the following versions at the time of writing this post.
 
-*   Lint Staged : 11.1.2
+*   Lint Staged: 11.1.2
 *   Husky: 7.0.0
 
 > Note: With previous version of Husky, the configuring mechanism was different than the approach I will be following in this guide.
 
-### Let’s get started
+### Let’s get started
 
 #### Install dependencies
 
@@ -68,7 +66,7 @@ npx husky-init && npm install
 npm install --save-dev lint-staged
 ```
 
-#### Configure lint staged
+#### Configure lint staged
 
 1\.  Create a lint-staged configuration file.
 
@@ -92,7 +90,7 @@ Since I’m using a TypeScript project, I have added `ts` and `tsx`  to the blob
 
 > I’m only running the lint command against the matched files. Obviously you can append any script you want to the array and lint-staged will run that for you.
 
-#### Add an npm script to run lint staged
+#### Add an npm script to run lint staged
 
 Add the following script under the **script** section in `package.json`.
 
@@ -112,13 +110,12 @@ For this purpose, I can use a pre-commit Git hook. There are other Git hooks tha
 npx husky add .husky/pre-commit "npm run lint:staged"
 ```
 
-#### Testing the flow
+#### Testing the flow
 
 I intentionally made a lint violation in one of my files and tried to commit a file.
 
 I got the bellow error as expected and I wasn’t allowed to commit to the repository.
 
-![](/resources/how-to-avoid-bad-code-from-slipping-into-your-repositories-1.png)
 <GatsbyImage alt="Terminal Image" className="mb-4" image={getImage(props.localImages[0])} />
 
 ### All Done 🥳

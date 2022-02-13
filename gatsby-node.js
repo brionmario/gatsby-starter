@@ -95,7 +95,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
     try {
         if (fs.existsSync(path.resolve(GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH))) {
-            fs.unlinkSync(GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH);
+            console.log("Type Definition file exists. Removing it first...");
+            fs.unlinkSync(path.resolve(GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH));
         }
 
         printTypeDefinitions({ path: "./debug-graphql-typings.txt" });
