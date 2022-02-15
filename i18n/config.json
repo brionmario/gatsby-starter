@@ -6,13 +6,5 @@
         "localName": "English",
         "langDir": "ltr",
         "dateFormat": "MM/DD/YYYY"
-    },
-    {
-        "code": "si",
-        "hrefLang": "si",
-        "name": "Sinhala",
-        "localName": "සිංහල",
-        "langDir": "ltr",
-        "dateFormat": "DD.MM.YY"
     }
 ]
