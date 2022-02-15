@@ -75,6 +75,24 @@ const BlogPostTemplate: FunctionComponent<IBlogPostTemplateProps> = (
         data,
         "data-testid": testId
     } = props;
+    
+    const {
+        mdx
+    } = data;
+
+    const {
+        body,
+        embeddedImagesRemote,
+        frontmatter
+    } = mdx;
+
+    const {
+        author,
+        authorAvatar,
+        date,
+        embeddedImagesLocal,
+        title
+    } = frontmatter;
 
     const classes = cx(
         "blog-post-layout"
@@ -89,12 +107,12 @@ const BlogPostTemplate: FunctionComponent<IBlogPostTemplateProps> = (
                     }
                 >
                     <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase sm:text-center">
-                        { data.mdx.frontmatter.date }
+                        { date }
                     </p>
                     <div className="max-w-xl mb-5 md:mx-auto sm:text-center lg:max-w-2xl">
                         <div className="mb-4">
                             <Heading.H1 data-testid="heading">
-                                { data.mdx.frontmatter.title }
+                                { title }
                             </Heading.H1>
                         </div>
                     </div>
@@ -102,7 +120,7 @@ const BlogPostTemplate: FunctionComponent<IBlogPostTemplateProps> = (
                         <a href="/" aria-label="Author" className="inline-block mb-1">
                             <img
                                 alt="avatar"
-                                src={ data.mdx.frontmatter.authorAvatar }
+                                src={ authorAvatar }
                                 className="object-cover w-10 h-10 rounded-full shadow-sm"
                             />
                         </a>
@@ -115,7 +133,7 @@ const BlogPostTemplate: FunctionComponent<IBlogPostTemplateProps> = (
                                     "hover:text-deep-purple-accent-700"
                                 }
                             >
-                                { data.mdx.frontmatter.author }
+                                { author }
                             </a>
                             <p className="text-sm font-medium leading-4 text-gray-600">Author</p>
                         </div>
@@ -124,11 +142,11 @@ const BlogPostTemplate: FunctionComponent<IBlogPostTemplateProps> = (
                 <div className="text-gray-100">
                     <MDXProvider components={ components }>
                         <MDXRenderer
-                            frontmatter={ data.mdx.frontmatter }
-                            remoteImages={ data.mdx.frontmatter.embeddedImagesRemote }
-                            localImages={ data.mdx.frontmatter.embeddedImagesLocal }
+                            frontmatter={ frontmatter }
+                            remoteImages={ embeddedImagesRemote }
+                            localImages={ embeddedImagesLocal }
                         >
-                            { data.mdx.body }
+                            { body }
                         </MDXRenderer>
                     </MDXProvider>
                 </div>
@@ -150,19 +168,19 @@ export const query = graphql`
         mdx(id: { eq: $id }) {
             id
             body
+            embeddedImagesRemote {
+                childImageSharp {
+                    gatsbyImageData(
+                        layout: FULL_WIDTH
+                    )
+                }
+            }
             frontmatter {
                 date(formatString: "YYYY MM Do")
                 title
                 author
                 authorAvatar
                 description
-                embeddedImagesRemote {
-                    childImageSharp {
-                        gatsbyImageData(
-                            layout: FULL_WIDTH
-                        )
-                    }
-                }
                 embeddedImagesLocal {
                     childImageSharp {
                         gatsbyImageData(

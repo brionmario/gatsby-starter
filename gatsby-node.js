@@ -25,6 +25,13 @@ const fs = require("fs");
 const path = require("path");
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
 
+/* eslint-disable no-console */
+const logger = {
+    error: console.error,
+    info: console.log
+};
+/* eslint-enable sort-keys */
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
 
     // Destructure the createPage function from the actions object
@@ -53,7 +60,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const posts = result.data.allMdx.edges;
 
     // you'll call `createPage` for each result
-    posts.forEach(({ node }, index) => {
+    posts.forEach(({ node }) => {
         createPage({
             // This component will wrap our MDX content
             component: path.resolve("./src/templates/blog-post-template.tsx"),
@@ -67,13 +74,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
 };
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = async ({ actions }) => {
 
-    const { createTypes, printTypeDefinitions } = actions;
+    const {
+        createTypes,
+        printTypeDefinitions
+    } = actions;
 
     createTypes(`
         type Mdx implements Node {
             frontmatter: Frontmatter
+            embeddedImagesRemote: [File] @link(from: "fields.embeddedImagesRemote")
         }
         type Frontmatter @dontInfer {
             title: String!
@@ -86,38 +97,39 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             category: String
             keywords: [String]
             featuredImage: File @fileByRelativePath
-            embeddedImagesRemote: [File] @link(by: "url")
             embeddedImagesLocal: [File] @fileByRelativePath
+            embeddedImagesRemote: [String]
         }
     `);
 
-    const GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH = "debug-graphql-typings.txt";
+    const GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH = path.join(__dirname, "debug-graphql-typings.txt");
 
     try {
         if (fs.existsSync(path.resolve(GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH))) {
-            console.log("Type Definition file exists. Removing it first...");
+            logger.info("Type Definition file exists. Removing it first...");
             fs.unlinkSync(path.resolve(GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH));
         }
 
-        printTypeDefinitions({ path: "./debug-graphql-typings.txt" });
-    } catch(err) {
-        console.error("Error occured while trying to write the GraphQL Type definitions file.", err);
+        await printTypeDefinitions({ path: GRAPHQL_TYPE_DEF_DEBUG_FILE_PATH });
+    } catch (err) {
+        logger.error("Error occured while trying to write the GraphQL Type definitions file.", err);
     }
 };
 
-exports.onCreateNode = ({
+exports.onCreateNode = async ({
     node,
     createNodeId,
-    actions: { createNode },
+    actions: { createNodeField, createNode },
     cache,
     store
 }) => {
+
     if (
         node.internal.type === "Mdx" &&
         node.frontmatter &&
         node.frontmatter.embeddedImagesRemote
     ) {
-        return Promise.all(
+        let embeddedImagesRemote = await Promise.all(
             node.frontmatter.embeddedImagesRemote.map((url) => {
                 try {
                     return createRemoteFileNode({
@@ -129,9 +141,19 @@ exports.onCreateNode = ({
                         url
                     });
                 } catch (error) {
-                    console.error(error);
+                    logger.error(error);
                 }
             })
         );
+
+        if (embeddedImagesRemote) {
+            createNodeField({
+                name: "embeddedImagesRemote",
+                node,
+                value: embeddedImagesRemote.map((image) => {
+                    return image.id;
+                })
+            });
+        }
     }
 };
