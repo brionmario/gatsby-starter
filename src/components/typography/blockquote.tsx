@@ -43,7 +43,7 @@ export const Blockquote: FunctionComponent<PropsWithChildren<IBlockquoteProps>> 
 
     const classes = cx(
         "blockquote",
-        "relative mb-5 p-4 text-xl italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote"
+        "relative mb-5 p-4 text-xl italic border-l-4 quote"
     );
 
     return (

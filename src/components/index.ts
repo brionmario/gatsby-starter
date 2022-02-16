@@ -18,6 +18,7 @@
 export * from "./footer";
 export * from "./layouts";
 export * from "./typography";
+export * from "./code-block";
 export * from "./container";
 export * from "./header";
 export * from "./language-switcher";

@@ -15,8 +15,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-@import "tailwind";
-
-// Partials
-@import "partials/code-block";
-@import "partials/typography";
+export * from "./blog-post-template";

@@ -56,7 +56,20 @@ module.exports = {
             resolve: "gatsby-source-filesystem"
         },
         "gatsby-transformer-sharp",
-        "gatsby-plugin-sharp",
+        {
+            options: {
+                defaults: {
+                    formats: [
+                        "auto",
+                        "avif",
+                        "webp"
+                    ],
+                    placeholder: "blurred",
+                    quality: 70
+                }
+            },
+            resolve: "gatsby-plugin-sharp"
+        },
         {
             options: {
                 background_color: "#F89C68",
@@ -80,7 +93,7 @@ module.exports = {
         {
             options: {
                 i18nextOptions: {
-                    ns: [ "dictionary", "common", "home" ]
+                    ns: [ "dictionary", "common", "home", "blog" ]
                 },
                 locales: "./i18n/translations"
             },
@@ -93,6 +106,40 @@ module.exports = {
                 ]
             },
             resolve: "@danbruegge/gatsby-plugin-stylelint"
+        },
+        {
+            options: {
+                name: "blog",
+                path: `${__dirname}/src/blog`
+            },
+            resolve: "gatsby-source-filesystem"
+        },
+        {
+            options: {
+                path: `${__dirname}/src/blog`
+            },
+            resolve: "gatsby-plugin-page-creator"
+        },
+        {
+            gatsbyRemarkPlugins: [
+                {
+                    options: {
+                        maxWidth: 1080
+                    },
+                    resolve: "gatsby-remark-images"
+                },
+                {
+                    resolve: "gatsby-remark-copy-linked-files"
+                }
+            ],
+            options: {
+                extensions: [
+                    ".mdx",
+                    ".md",
+                    ".markdown"
+                ]
+            },
+            resolve: "gatsby-plugin-mdx"
         }
     ],
     siteMetadata: {
